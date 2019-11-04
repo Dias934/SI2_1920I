@@ -1,0 +1,52 @@
+/*
+*   ISEL-ADEETC-SI2
+*   ND 2017-2019
+*
+*   Material didático para apoio 
+*   à unidade curricular de 
+*   Sistemas de Informação II
+*
+*/
+-- ********** Teste 7 **********
+--tempo t0:
+USE ap1;
+GO
+ALTER DATABASE ap1
+    SET ALLOW_SNAPSHOT_ISOLATION OFF
+ALTER DATABASE ap1
+    SET READ_COMMITTED_SNAPSHOT OFF
+GO
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+BEGIN TRAN
+TRUNCATE TABLE conta
+INSERT INTO conta VALUES(1,1000)
+INSERT INTO conta VALUES(2,2000)
+COMMIT
+GO
+ALTER DATABASE ap1
+    SET ALLOW_SNAPSHOT_ISOLATION ON
+GO
+--tempo t1:
+SET TRANSACTION ISOLATION LEVEL SNAPSHOT
+BEGIN TRANSACTION
+
+--tempo t2
+DECLARE @s1 REAL
+SELECT @s1 = saldo FROM conta WHERE id = 1
+PRINT @s1
+
+--tempo t5
+DECLARE @s2 REAL
+SELECT @s2 = saldo FROM conta WHERE id = 1
+PRINT @s2
+
+--tempo t11
+DECLARE @s2 REAL
+SELECT @s2 = saldo FROM conta WHERE id = 1
+PRINT @s2
+COMMIT
+
+--tempo t12
+DECLARE @s2 REAL
+SELECT @s2 = saldo FROM conta WHERE id = 1
+PRINT @s2
