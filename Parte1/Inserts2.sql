@@ -22,7 +22,7 @@ begin tran
 	Select * from Contacto
 commit
 
-
+/***INSERT TELEFONE E EMAIL E ASSOCIAR A UM CLIENTE***/
 use TL51N_3
 begin tran
 	insert into Telefone values (111,1,351,9661444)
@@ -44,4 +44,13 @@ use TL51N_3
 begin tran
 	Select * from Telefone INNER JOIN Email ON Telefone.cc = Email.cc INNER JOIN Contacto ON Telefone.cc = Contacto.cc
 
+commit
+
+/*** INSERT PORTFOLIO***/
+use TL51N_3
+begin tran
+	insert into Portfolio values (111,'Portofolio DiogoM',500)
+	insert into Portfolio values (222,'Portofolio DiogoB',20)
+	insert into Portfolio values (333,'Portofolio Manuel',100)
+	Select * from Portfolio
 commit
