@@ -88,7 +88,7 @@ create table Mer_A_Ins
 
 create table Triplos
 (
-	id varchar(15) primary key,
+	id varchar(15),
 	datet Datetime default(getDate()) Not NULL,
 	valor float(2)
 )
