@@ -72,12 +72,12 @@ Create Table Instrumento
 Create Table RegDiaInst
 (
 	isin varchar(15) unique FOREIGN KEY  References Instrumento(isin),
-	dat date primary key default(getDate()) NOT NULL,
+	dat date default(getDate()) NOT NULL,
 	val_min float(2),
 	val_max float(2),
 	val_ab float(2),
 	val_fe float(2),
-	constraint UC_RegDiaIns unique (isin,dat)
+	constraint UC_RegDiaIns unique (isin)
 )
 
 create table Mer_A_Ins
@@ -137,4 +137,9 @@ create table Email
 	cod_un int unique references Contacto(cod_un),
 	endereço varchar(30) not null
 )
+
+
+
 COMMIT
+
+
