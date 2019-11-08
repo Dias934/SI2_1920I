@@ -51,9 +51,9 @@ Create Table RegDiaMerFin
 (
 	cod_un INT foreign key REFERENCES MerFin(cod_un) not null,
 	dat date default(getDate()) NOT NULL,
-	var_dia float(2),
-	val_ab float(2),
-	int_mer float(2),
+	var_dia float(2) default(0.0) NOT NULL,
+	val_ab float(2) default(0.0) NOT NULL,
+	int_mer float(2) default(0.0) NOT NULL,
 	constraint UC_RegDiaMerFin unique (cod_un,dat)
 )
 
@@ -61,23 +61,23 @@ Create Table Instrumento
 (
 	isin varchar(15) Primary key,
 	descrição varchar(50),
-	val_var_dia float(2),
-	val_at float(2),
-	med_6_mes_val_fe float(2),
-	val_var_6_mes float(2),
-	perc_var_dia float(2),
-	perc_var_6_mes float(2)
+	val_var_dia float(2) default(0.0) NOT NULL,
+	val_at float(2) default(0.0) NOT NULL,
+	med_6_mes_val_fe float(2) default(0.0) NOT NULL,
+	val_var_6_mes float(2) default(0.0) NOT NULL,
+	perc_var_dia float(2) default(0.0) NOT NULL,
+	perc_var_6_mes float(2) default(0.0) NOT NULL
 )
 
 Create Table RegDiaInst
 (
 	isin varchar(15) unique FOREIGN KEY  References Instrumento(isin),
 	dat date default(getDate()) NOT NULL,
-	val_min float(2),
-	val_max float(2),
-	val_ab float(2),
+	val_min float(2) default(0.0) NOT NULL,
+	val_max float(2) default(0.0) NOT NULL,
+	val_ab float(2) default(0.0) NOT NULL,
 	val_fe float(2),
-	constraint UC_RegDiaIns unique (isin)
+	constraint UC_RegDiaIns unique (isin,dat)
 )
 
 create table Mer_A_Ins
@@ -114,6 +114,7 @@ create table Posições
 	nome varchar(20) references Portfolio(nome),
 	isin varchar(15) references Instrumento(isin),
 	qtd int not null
+	CONSTRAINT UC_Posições UNIQUE (cc,nome,isin)
 )
 
 create table Contacto
