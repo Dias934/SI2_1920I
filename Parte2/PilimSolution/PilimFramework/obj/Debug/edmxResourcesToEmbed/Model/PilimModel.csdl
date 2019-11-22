@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TL51N_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="udfProductInYear_Result">
+    <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="qtd" Type="Int32" Nullable="false" />
+    <Property Name="val_at" Type="Single" Nullable="false" />
+    <Property Name="perc_var_dia" Type="Single" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="Int32" Nullable="false" />
+    <Property Name="id_fiscal" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__cc__60A75C0F" FromRole="Cliente" ToRole="Contacto" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK__Portfolio__cc__5812160E" FromRole="Cliente" ToRole="Portfolio" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="Int32" Nullable="false" />
+    <Property Name="cod_un" Type="Int32" Nullable="false" />
+    <Property Name="descrição" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Contacto__cc__60A75C0F" FromRole="Contacto" ToRole="Cliente" />
+    <NavigationProperty Name="Email" Relationship="Self.FK__Email__cc__693CA210" FromRole="Contacto" ToRole="Email" />
+    <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__cc__6477ECF3" FromRole="Contacto" ToRole="Telefone" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="Int32" Nullable="false" />
+    <Property Name="cod_un" Type="Int32" />
+    <Property Name="endereço" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK__Email__cc__693CA210" FromRole="Email" ToRole="Contacto" />
+  </EntityType>
+  <EntityType Name="Instrumento">
+    <Key>
+      <PropertyRef Name="isin" />
+    </Key>
+    <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descrição" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="val_var_dia" Type="Single" Nullable="false" />
+    <Property Name="val_at" Type="Single" Nullable="false" />
+    <Property Name="med_6_mes_val_fe" Type="Single" Nullable="false" />
+    <Property Name="val_var_6_mes" Type="Single" Nullable="false" />
+    <Property Name="perc_var_dia" Type="Single" Nullable="false" />
+    <Property Name="perc_var_6_mes" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Posições" Relationship="Self.FK__Posições__isin__5CD6CB2B" FromRole="Instrumento" ToRole="Posições" />
+    <NavigationProperty Name="RegDiaInsts" Relationship="Self.FK__RegDiaInst__isin__47DBAE45" FromRole="Instrumento" ToRole="RegDiaInst" />
+  </EntityType>
+  <EntityType Name="MerFin">
+    <Key>
+      <PropertyRef Name="cod_un" />
+    </Key>
+    <Property Name="cod_un" Type="Int32" Nullable="false" />
+    <Property Name="descrição" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegDiaMerFins" Relationship="Self.FK__RegDiaMer__cod_u__38996AB5" FromRole="MerFin" ToRole="RegDiaMerFin" />
+  </EntityType>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vt" Type="Int32" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Portfolio__cc__5812160E" FromRole="Portfolio" ToRole="Cliente" />
+    <NavigationProperty Name="Posições" Relationship="Self.FK__Posições__cc__5AEE82B9" FromRole="Portfolio" ToRole="Posições" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="Int32" Nullable="false" />
+    <Property Name="cod_un" Type="Int32" />
+    <Property Name="indicador" Type="Int32" Nullable="false" />
+    <Property Name="nr" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK__Telefone__cc__6477ECF3" FromRole="Telefone" ToRole="Contacto" />
+  </EntityType>
+  <EntityType Name="Posições">
+    <Key>
+      <PropertyRef Name="qtd" />
+    </Key>
+    <Property Name="cc" Type="Int32" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="qtd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Instrumento" Relationship="Self.FK__Posições__isin__5CD6CB2B" FromRole="Posições" ToRole="Instrumento" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK__Posições__cc__5AEE82B9" FromRole="Posições" ToRole="Portfolio" />
+  </EntityType>
+  <EntityType Name="RegDiaInst">
+    <Key>
+      <PropertyRef Name="dat" />
+      <PropertyRef Name="val_min" />
+      <PropertyRef Name="val_max" />
+      <PropertyRef Name="val_ab" />
+    </Key>
+    <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="val_min" Type="Single" Nullable="false" />
+    <Property Name="val_max" Type="Single" Nullable="false" />
+    <Property Name="val_ab" Type="Single" Nullable="false" />
+    <Property Name="val_fe" Type="Single" />
+    <NavigationProperty Name="Instrumento" Relationship="Self.FK__RegDiaInst__isin__47DBAE45" FromRole="RegDiaInst" ToRole="Instrumento" />
+  </EntityType>
+  <EntityType Name="RegDiaMerFin">
+    <Key>
+      <PropertyRef Name="cod_un" />
+      <PropertyRef Name="dat" />
+      <PropertyRef Name="var_dia" />
+      <PropertyRef Name="val_ab" />
+      <PropertyRef Name="int_mer" />
+    </Key>
+    <Property Name="cod_un" Type="Int32" Nullable="false" />
+    <Property Name="dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="var_dia" Type="Single" Nullable="false" />
+    <Property Name="val_ab" Type="Single" Nullable="false" />
+    <Property Name="int_mer" Type="Single" Nullable="false" />
+    <NavigationProperty Name="MerFin" Relationship="Self.FK__RegDiaMer__cod_u__38996AB5" FromRole="RegDiaMerFin" ToRole="MerFin" />
+  </EntityType>
+  <EntityType Name="Triplo">
+    <Key>
+      <PropertyRef Name="datet" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="datet" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="valor" Type="Single" />
+  </EntityType>
+  <EntityType Name="v_portfolioCliente">
+    <Key>
+      <PropertyRef Name="nome" />
+    </Key>
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="quantidades" Type="Int32" />
+    <Property Name="Valores_Totais" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Contacto__cc__60A75C0F">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Portfolio__cc__5812160E">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Portfolio">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Email__cc__693CA210">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Email" Type="Self.Email" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Telefone__cc__6477ECF3">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Posições__isin__5CD6CB2B">
+    <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="0..1" />
+    <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrumento">
+        <PropertyRef Name="isin" />
+      </Principal>
+      <Dependent Role="Posições">
+        <PropertyRef Name="isin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegDiaInst__isin__47DBAE45">
+    <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="0..1" />
+    <End Role="RegDiaInst" Type="Self.RegDiaInst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrumento">
+        <PropertyRef Name="isin" />
+      </Principal>
+      <Dependent Role="RegDiaInst">
+        <PropertyRef Name="isin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegDiaMer__cod_u__38996AB5">
+    <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
+    <End Role="RegDiaMerFin" Type="Self.RegDiaMerFin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MerFin">
+        <PropertyRef Name="cod_un" />
+      </Principal>
+      <Dependent Role="RegDiaMerFin">
+        <PropertyRef Name="cod_un" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Posições__cc__5AEE82B9">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
+    <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Posições">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TL51N_3Entities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Contactoes" EntityType="Self.Contacto" />
+    <EntitySet Name="Emails" EntityType="Self.Email" />
+    <EntitySet Name="Instrumentoes" EntityType="Self.Instrumento" />
+    <EntitySet Name="MerFins" EntityType="Self.MerFin" />
+    <EntitySet Name="Portfolios" EntityType="Self.Portfolio" />
+    <EntitySet Name="Telefones" EntityType="Self.Telefone" />
+    <EntitySet Name="Posições" EntityType="Self.Posições" />
+    <EntitySet Name="RegDiaInsts" EntityType="Self.RegDiaInst" />
+    <EntitySet Name="RegDiaMerFins" EntityType="Self.RegDiaMerFin" />
+    <EntitySet Name="Triplos" EntityType="Self.Triplo" />
+    <EntitySet Name="v_portfolioClientes" EntityType="Self.v_portfolioCliente" />
+    <AssociationSet Name="FK__Contacto__cc__60A75C0F" Association="Self.FK__Contacto__cc__60A75C0F">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Contacto" EntitySet="Contactoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Portfolio__cc__5812160E" Association="Self.FK__Portfolio__cc__5812160E">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Portfolio" EntitySet="Portfolios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Email__cc__693CA210" Association="Self.FK__Email__cc__693CA210">
+      <End Role="Contacto" EntitySet="Contactoes" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Telefone__cc__6477ECF3" Association="Self.FK__Telefone__cc__6477ECF3">
+      <End Role="Contacto" EntitySet="Contactoes" />
+      <End Role="Telefone" EntitySet="Telefones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Posições__isin__5CD6CB2B" Association="Self.FK__Posições__isin__5CD6CB2B">
+      <End Role="Instrumento" EntitySet="Instrumentoes" />
+      <End Role="Posições" EntitySet="Posições" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegDiaInst__isin__47DBAE45" Association="Self.FK__RegDiaInst__isin__47DBAE45">
+      <End Role="Instrumento" EntitySet="Instrumentoes" />
+      <End Role="RegDiaInst" EntitySet="RegDiaInsts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegDiaMer__cod_u__38996AB5" Association="Self.FK__RegDiaMer__cod_u__38996AB5">
+      <End Role="MerFin" EntitySet="MerFins" />
+      <End Role="RegDiaMerFin" EntitySet="RegDiaMerFins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Posições__cc__5AEE82B9" Association="Self.FK__Posições__cc__5AEE82B9">
+      <End Role="Portfolio" EntitySet="Portfolios" />
+      <End Role="Posições" EntitySet="Posições" />
+    </AssociationSet>
+    <FunctionImport Name="udfProductInYear" IsComposable="true" ReturnType="Collection(TL51N_3Model.udfProductInYear_Result)">
+      <Parameter Name="ccT" Mode="In" Type="Int32" />
+      <Parameter Name="nomeT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InserçãoDeRegistosDiáriosAutomáticos" />
+    <FunctionImport Name="p_actualizaDadosInstrumentos" />
+    <FunctionImport Name="p_actualizaValorDiario" />
+  </EntityContainer>
+</Schema>

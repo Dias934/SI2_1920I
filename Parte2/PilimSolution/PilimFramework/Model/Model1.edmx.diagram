@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1ce18371e8b460582c79ec72d7103e5" Name="Diagram1" ZoomLevel="110">
+        <EntityTypeShape EntityType="TL51N_3Model.Cliente" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Contacto" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Email" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Instrumento" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.MerFin" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Telefone" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Portfolio" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Posições" Width="1.5" PointX="5.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.RegDiaInst" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.RegDiaMerFin" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TL51N_3Model.Triplo" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="TL51N_3Model.FK__Contacto__cc__370627FE" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__Portfolio__cc__2E70E1FD" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__Email__cc__3F9B6DFF" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__Telefone__cc__3AD6B8E2" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__Posições__isin__3335971A" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__RegDiaInst__isin__1D4655FB" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__RegDiaMer__cod_u__0E04126B" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.FK__Posições__nome__324172E1" ManuallyRouted="false" />
+        <AssociationConnector Association="TL51N_3Model.Mer_A_Ins" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

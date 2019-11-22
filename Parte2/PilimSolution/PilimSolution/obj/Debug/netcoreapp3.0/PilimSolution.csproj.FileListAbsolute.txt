@@ -1,0 +1,11 @@
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.exe
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.deps.json
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.runtimeconfig.json
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.runtimeconfig.dev.json
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.dll
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\bin\Debug\netcoreapp3.0\PilimSolution.pdb
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\obj\Debug\netcoreapp3.0\PilimSolution.csprojAssemblyReference.cache
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\obj\Debug\netcoreapp3.0\PilimSolution.AssemblyInfoInputs.cache
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\obj\Debug\netcoreapp3.0\PilimSolution.AssemblyInfo.cs
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\obj\Debug\netcoreapp3.0\PilimSolution.dll
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimSolution\obj\Debug\netcoreapp3.0\PilimSolution.pdb

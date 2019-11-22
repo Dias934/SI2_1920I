@@ -22,8 +22,8 @@ AS
 
 	--Tratamento dos registos diários dos Mercados Financeiros
 	declare @cod_unT int;
-	declare @ind_mer float(2);
-	declare @ind_mer_anterior float(2);
+	declare @ind_mer float(2)=0.0;
+	declare @ind_mer_anterior float(2)=0.0;
 	DECLARE MerFinCursor CURSOR FOR Select cod_un from MerFin;
 	open MerFinCursor;
 	FETCH NEXT FROM MerFinCursor into @cod_unT;

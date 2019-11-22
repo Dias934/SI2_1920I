@@ -71,7 +71,7 @@ Create Table Instrumento
 
 Create Table RegDiaInst
 (
-	isin varchar(15) unique FOREIGN KEY  References Instrumento(isin),
+	isin varchar(15) unique FOREIGN KEY  References Instrumento(isin) not null,
 	dat date default(getDate()) NOT NULL,
 	val_min float(2) default(0.0) NOT NULL,
 	val_max float(2) default(0.0) NOT NULL,
@@ -82,8 +82,9 @@ Create Table RegDiaInst
 
 create table Mer_A_Ins
 (
-	cod_un int references MerFin(cod_un),
-	isin varchar(15) references Instrumento(isin)
+	cod_un int references MerFin(cod_un) not null,
+	isin varchar(15) references Instrumento(isin)not null
+	constraint UC_Mer_A_Ins unique (isin,cod_un)
 )
 
 create table Triplos
@@ -103,7 +104,7 @@ create table Cliente
 
 create table Portfolio
 (
-	cc int primary key foreign key references Cliente(cc),
+	cc int unique foreign key references Cliente(cc),
 	nome varchar(20) unique not null,
 	vt int
 )
@@ -119,23 +120,23 @@ create table Posições
 
 create table Contacto
 (
-	cc int primary key foreign key references Cliente(cc),
+	cc int primary key foreign key references Cliente(cc)not null,
 	cod_un int unique not null,
 	descrição varchar(50)
 )
 
 create table Telefone
 (
-	cc int primary key foreign key references Contacto(cc),
-	cod_un int unique references Contacto(cod_un),
+	cc int primary key foreign key references Contacto(cc) not null,
+	cod_un int unique references Contacto(cod_un) not null,
 	indicador int not null,
 	nr int not null
 )
 
 create table Email
 (
-	cc int primary key foreign key references Contacto(cc),
-	cod_un int unique references Contacto(cod_un),
+	cc int primary key foreign key references Contacto(cc) not null,
+	cod_un int unique references Contacto(cod_un) not null,
 	endereço varchar(30) not null
 )
 
