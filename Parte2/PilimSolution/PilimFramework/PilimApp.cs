@@ -1,4 +1,5 @@
 ﻿using System;
+using PilimFramework.Menu;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,8 @@ namespace PilimFramework {
 		}
 		public static void Main(string[] args) {
 			Credentials cr = getCredentials();
-			App.Instance.ConnectionString = @"Data Source=10.62.73.95;Database=TL51N_3;User ID=" + cr.Username + ";Password=" + cr.Password + "; Pooling=true; max pool size=10";
-			App.Instance.Run();
+			Menu.Menu.ConnectionString = @"Data Source=10.62.73.95;Database=TL51N_3;User ID=" + cr.Username + ";Password=" + cr.Password + "; Pooling=true; max pool size=10";
+			Menu.Main.Instance.Run();
 		}
 	}
 }

@@ -10,16 +10,12 @@
 namespace PilimFramework.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Posições
+    public partial class fListaPortfolio_Result
     {
-        public int cc { get; set; }
-        public string nome { get; set; }
         public string isin { get; set; }
         public int qtd { get; set; }
-    
-        public virtual Instrumento Instrumento { get; set; }
-        public virtual Portfolio Portfolio { get; set; }
+        public float val_at { get; set; }
+        public float perc_var_dia { get; set; }
     }
 }

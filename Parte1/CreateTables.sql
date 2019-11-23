@@ -97,23 +97,24 @@ create table Triplos
 create table Cliente
 (
 	cc int primary key,
-	id_fiscal int unique not null,
+	id_fiscal int unique,
 	nome varchar(20) not null,
 	CONSTRAINT UC_Cliente UNIQUE (cc,id_fiscal)
 )
 
 create table Portfolio
 (
-	cc int unique foreign key references Cliente(cc),
+	cc int unique foreign key references Cliente(cc)not null,
 	nome varchar(20) unique not null,
 	vt int
+	CONSTRAINT UC_Portfolio UNIQUE (cc,nome)
 )
 
 create table Posições
 (
-	cc int references Portfolio(cc),
-	nome varchar(20) references Portfolio(nome),
-	isin varchar(15) references Instrumento(isin),
+	cc int references Portfolio(cc) not null,
+	nome varchar(20) references Portfolio(nome) not null,
+	isin varchar(15) references Instrumento(isin)not null,
 	qtd int not null
 	CONSTRAINT UC_Posições UNIQUE (cc,nome,isin)
 )

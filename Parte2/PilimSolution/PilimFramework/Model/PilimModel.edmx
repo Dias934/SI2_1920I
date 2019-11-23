@@ -10,7 +10,7 @@
             <PropertyRef Name="cc" />
           </Key>
           <Property Name="cc" Type="int" Nullable="false" />
-          <Property Name="id_fiscal" Type="int" Nullable="false" />
+          <Property Name="id_fiscal" Type="int" />
           <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Contacto">
@@ -64,9 +64,10 @@ warning 6002: The table/view 'TL51N_3.dbo.Mer_A_Ins' does not have a primary key
 warning 6002: The table/view 'TL51N_3.dbo.Portfolio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Portfolio">
           <Key>
+            <PropertyRef Name="cc" />
             <PropertyRef Name="nome" />
           </Key>
-          <Property Name="cc" Type="int" />
+          <Property Name="cc" Type="int" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="vt" Type="int" />
         </EntityType>
@@ -74,11 +75,14 @@ warning 6002: The table/view 'TL51N_3.dbo.Portfolio' does not have a primary key
 warning 6002: The table/view 'TL51N_3.dbo.Posições' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Posições">
           <Key>
+            <PropertyRef Name="cc" />
+            <PropertyRef Name="nome" />
+            <PropertyRef Name="isin" />
             <PropertyRef Name="qtd" />
           </Key>
-          <Property Name="cc" Type="int" />
-          <Property Name="nome" Type="varchar" MaxLength="20" />
-          <Property Name="isin" Type="varchar" MaxLength="15" />
+          <Property Name="cc" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="qtd" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -133,7 +137,7 @@ warning 6002: The table/view 'TL51N_3.dbo.Triplos' does not have a primary key d
           <Property Name="datet" Type="datetime" Nullable="false" />
           <Property Name="valor" Type="real" />
         </EntityType>
-        <Association Name="FK__Contacto__cc__370627FE">
+        <Association Name="FK__Contacto__cc__161A357F">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -145,7 +149,7 @@ warning 6002: The table/view 'TL51N_3.dbo.Triplos' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Email__cc__3F9B6DFF">
+        <Association Name="FK__Email__cc__1EAF7B80">
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
           <End Role="Email" Type="Self.Email" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -158,9 +162,9 @@ warning 6002: The table/view 'TL51N_3.dbo.Triplos' does not have a primary key d
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Email__cod_un__408F9238' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Email__cod_un__408F9238" />-->
-        <Association Name="FK__Mer_A_Ins__cod_u__23F3538A">
+warning 6035: The relationship 'FK__Email__cod_un__1FA39FB9' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Email__cod_un__1FA39FB9" />-->
+        <Association Name="FK__Mer_A_Ins__cod_u__02133CD2">
           <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
           <End Role="Mer_A_Ins" Type="Self.Mer_A_Ins" Multiplicity="*" />
           <ReferentialConstraint>
@@ -172,7 +176,7 @@ warning 6035: The relationship 'FK__Email__cod_un__408F9238' has columns that ar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mer_A_Ins__isin__24E777C3">
+        <Association Name="FK__Mer_A_Ins__isin__0307610B">
           <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
           <End Role="Mer_A_Ins" Type="Self.Mer_A_Ins" Multiplicity="*" />
           <ReferentialConstraint>
@@ -184,8 +188,8 @@ warning 6035: The relationship 'FK__Email__cod_un__408F9238' has columns that ar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Portfolio__cc__2E70E1FD">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+        <Association Name="FK__Portfolio__cc__0D84EF7E">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
@@ -197,10 +201,10 @@ warning 6035: The relationship 'FK__Email__cod_un__408F9238' has columns that ar
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Posições__cc__314D4EA8' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Posições__cc__314D4EA8" />-->
-        <Association Name="FK__Posições__isin__3335971A">
-          <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="0..1" />
+warning 6035: The relationship 'FK__Posições__cc__10615C29' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Posições__cc__10615C29" />-->
+        <Association Name="FK__Posições__isin__1249A49B">
+          <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
           <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Instrumento">
@@ -211,19 +215,10 @@ warning 6035: The relationship 'FK__Posições__cc__314D4EA8' has columns that a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posições__nome__324172E1">
-          <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
-          <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Portfolio">
-              <PropertyRef Name="nome" />
-            </Principal>
-            <Dependent Role="Posições">
-              <PropertyRef Name="nome" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RegDiaInst__isin__1D4655FB">
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Posições__nome__11558062' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Posições__nome__11558062" />-->
+        <Association Name="FK__RegDiaInst__isin__7B663F43">
           <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
           <End Role="RegDiaInst" Type="Self.RegDiaInst" Multiplicity="*" />
           <ReferentialConstraint>
@@ -235,7 +230,7 @@ warning 6035: The relationship 'FK__Posições__cc__314D4EA8' has columns that a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegDiaMer__cod_u__0E04126B">
+        <Association Name="FK__RegDiaMer__cod_u__6C23FBB3">
           <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
           <End Role="RegDiaMerFin" Type="Self.RegDiaMerFin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -247,7 +242,7 @@ warning 6035: The relationship 'FK__Posições__cc__314D4EA8' has columns that a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefone__cc__3AD6B8E2">
+        <Association Name="FK__Telefone__cc__19EAC663">
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
           <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -260,8 +255,22 @@ warning 6035: The relationship 'FK__Posições__cc__314D4EA8' has columns that a
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Telefone__cod_un__3BCADD1B" />-->
+warning 6035: The relationship 'FK__Telefone__cod_un__1ADEEA9C' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Telefone__cod_un__1ADEEA9C" />-->
+        <Function Name="fListaPortfolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ccT" Type="int" Mode="In" />
+          <Parameter Name="nomeT" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="qtd" Type="int" Nullable="false" />
+                <Property Name="val_at" Type="real" Nullable="false" />
+                <Property Name="perc_var_dia" Type="real" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="InserçãoDeRegistosDiáriosAutomáticos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="p_actualizaDadosInstrumentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="p_actualizaValorDiario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -333,43 +342,39 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
     [Triplos].[valor] AS [valor]
     FROM [dbo].[Triplos] AS [Triplos]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Contacto__cc__370627FE" Association="Self.FK__Contacto__cc__370627FE">
+          <AssociationSet Name="FK__Contacto__cc__161A357F" Association="Self.FK__Contacto__cc__161A357F">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Contacto" EntitySet="Contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Email__cc__3F9B6DFF" Association="Self.FK__Email__cc__3F9B6DFF">
+          <AssociationSet Name="FK__Email__cc__1EAF7B80" Association="Self.FK__Email__cc__1EAF7B80">
             <End Role="Contacto" EntitySet="Contacto" />
             <End Role="Email" EntitySet="Email" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mer_A_Ins__cod_u__23F3538A" Association="Self.FK__Mer_A_Ins__cod_u__23F3538A">
+          <AssociationSet Name="FK__Mer_A_Ins__cod_u__02133CD2" Association="Self.FK__Mer_A_Ins__cod_u__02133CD2">
             <End Role="MerFin" EntitySet="MerFin" />
             <End Role="Mer_A_Ins" EntitySet="Mer_A_Ins" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mer_A_Ins__isin__24E777C3" Association="Self.FK__Mer_A_Ins__isin__24E777C3">
+          <AssociationSet Name="FK__Mer_A_Ins__isin__0307610B" Association="Self.FK__Mer_A_Ins__isin__0307610B">
             <End Role="Instrumento" EntitySet="Instrumento" />
             <End Role="Mer_A_Ins" EntitySet="Mer_A_Ins" />
           </AssociationSet>
-          <AssociationSet Name="FK__Portfolio__cc__2E70E1FD" Association="Self.FK__Portfolio__cc__2E70E1FD">
+          <AssociationSet Name="FK__Portfolio__cc__0D84EF7E" Association="Self.FK__Portfolio__cc__0D84EF7E">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Portfolio" EntitySet="Portfolio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posições__isin__3335971A" Association="Self.FK__Posições__isin__3335971A">
+          <AssociationSet Name="FK__Posições__isin__1249A49B" Association="Self.FK__Posições__isin__1249A49B">
             <End Role="Instrumento" EntitySet="Instrumento" />
             <End Role="Posições" EntitySet="Posições" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posições__nome__324172E1" Association="Self.FK__Posições__nome__324172E1">
-            <End Role="Portfolio" EntitySet="Portfolio" />
-            <End Role="Posições" EntitySet="Posições" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RegDiaInst__isin__1D4655FB" Association="Self.FK__RegDiaInst__isin__1D4655FB">
+          <AssociationSet Name="FK__RegDiaInst__isin__7B663F43" Association="Self.FK__RegDiaInst__isin__7B663F43">
             <End Role="Instrumento" EntitySet="Instrumento" />
             <End Role="RegDiaInst" EntitySet="RegDiaInst" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegDiaMer__cod_u__0E04126B" Association="Self.FK__RegDiaMer__cod_u__0E04126B">
+          <AssociationSet Name="FK__RegDiaMer__cod_u__6C23FBB3" Association="Self.FK__RegDiaMer__cod_u__6C23FBB3">
             <End Role="MerFin" EntitySet="MerFin" />
             <End Role="RegDiaMerFin" EntitySet="RegDiaMerFin" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefone__cc__3AD6B8E2" Association="Self.FK__Telefone__cc__3AD6B8E2">
+          <AssociationSet Name="FK__Telefone__cc__19EAC663" Association="Self.FK__Telefone__cc__19EAC663">
             <End Role="Contacto" EntitySet="Contacto" />
             <End Role="Telefone" EntitySet="Telefone" />
           </AssociationSet>
@@ -379,6 +384,12 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TL51N_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fListaPortfolio_Result">
+          <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="qtd" Type="Int32" Nullable="false" />
+          <Property Name="val_at" Type="Single" Nullable="false" />
+          <Property Name="perc_var_dia" Type="Single" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="udfProductInYear_Result">
           <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="qtd" Type="Int32" Nullable="false" />
@@ -390,10 +401,10 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             <PropertyRef Name="cc" />
           </Key>
           <Property Name="cc" Type="Int32" Nullable="false" />
-          <Property Name="id_fiscal" Type="Int32" Nullable="false" />
+          <Property Name="id_fiscal" Type="Int32" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__cc__370627FE" FromRole="Cliente" ToRole="Contacto" />
-          <NavigationProperty Name="Portfolios" Relationship="Self.FK__Portfolio__cc__2E70E1FD" FromRole="Cliente" ToRole="Portfolio" />
+          <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__cc__161A357F" FromRole="Cliente" ToRole="Contacto" />
+          <NavigationProperty Name="Portfolio" Relationship="Self.FK__Portfolio__cc__0D84EF7E" FromRole="Cliente" ToRole="Portfolio" />
         </EntityType>
         <EntityType Name="Contacto">
           <Key>
@@ -402,9 +413,9 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="cc" Type="Int32" Nullable="false" />
           <Property Name="cod_un" Type="Int32" Nullable="false" />
           <Property Name="descrição" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__Contacto__cc__370627FE" FromRole="Contacto" ToRole="Cliente" />
-          <NavigationProperty Name="Email" Relationship="Self.FK__Email__cc__3F9B6DFF" FromRole="Contacto" ToRole="Email" />
-          <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__cc__3AD6B8E2" FromRole="Contacto" ToRole="Telefone" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Contacto__cc__161A357F" FromRole="Contacto" ToRole="Cliente" />
+          <NavigationProperty Name="Email" Relationship="Self.FK__Email__cc__1EAF7B80" FromRole="Contacto" ToRole="Email" />
+          <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__cc__19EAC663" FromRole="Contacto" ToRole="Telefone" />
         </EntityType>
         <EntityType Name="Email">
           <Key>
@@ -413,7 +424,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="cc" Type="Int32" Nullable="false" />
           <Property Name="cod_un" Type="Int32" Nullable="false" />
           <Property Name="endereço" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Email__cc__3F9B6DFF" FromRole="Email" ToRole="Contacto" />
+          <NavigationProperty Name="Contacto" Relationship="Self.FK__Email__cc__1EAF7B80" FromRole="Email" ToRole="Contacto" />
         </EntityType>
         <EntityType Name="Instrumento">
           <Key>
@@ -427,9 +438,9 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="val_var_6_mes" Type="Single" Nullable="false" />
           <Property Name="perc_var_dia" Type="Single" Nullable="false" />
           <Property Name="perc_var_6_mes" Type="Single" Nullable="false" />
-          <NavigationProperty Name="Posições" Relationship="Self.FK__Posições__isin__3335971A" FromRole="Instrumento" ToRole="Posições" />
-          <NavigationProperty Name="RegDiaInsts" Relationship="Self.FK__RegDiaInst__isin__1D4655FB" FromRole="Instrumento" ToRole="RegDiaInst" />
-          <NavigationProperty Name="MerFins" Relationship="Self.Mer_A_Ins" FromRole="Instrumento" ToRole="MerFin" />
+          <NavigationProperty Name="Posições" Relationship="Self.FK__Posições__isin__1249A49B" FromRole="Instrumento" ToRole="Posições" />
+          <NavigationProperty Name="RegDiaInst" Relationship="Self.FK__RegDiaInst__isin__7B663F43" FromRole="Instrumento" ToRole="RegDiaInst" />
+          <NavigationProperty Name="MerFin" Relationship="Self.Mer_A_Ins" FromRole="Instrumento" ToRole="MerFin" />
         </EntityType>
         <EntityType Name="MerFin">
           <Key>
@@ -438,8 +449,8 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="cod_un" Type="Int32" Nullable="false" />
           <Property Name="descrição" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nome" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RegDiaMerFins" Relationship="Self.FK__RegDiaMer__cod_u__0E04126B" FromRole="MerFin" ToRole="RegDiaMerFin" />
-          <NavigationProperty Name="Instrumentoes" Relationship="Self.Mer_A_Ins" FromRole="MerFin" ToRole="Instrumento" />
+          <NavigationProperty Name="RegDiaMerFin" Relationship="Self.FK__RegDiaMer__cod_u__6C23FBB3" FromRole="MerFin" ToRole="RegDiaMerFin" />
+          <NavigationProperty Name="Instrumento" Relationship="Self.Mer_A_Ins" FromRole="MerFin" ToRole="Instrumento" />
         </EntityType>
         <EntityType Name="Telefone">
           <Key>
@@ -449,28 +460,32 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="cod_un" Type="Int32" Nullable="false" />
           <Property Name="indicador" Type="Int32" Nullable="false" />
           <Property Name="nr" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Telefone__cc__3AD6B8E2" FromRole="Telefone" ToRole="Contacto" />
+          <NavigationProperty Name="Contacto" Relationship="Self.FK__Telefone__cc__19EAC663" FromRole="Telefone" ToRole="Contacto" />
         </EntityType>
         <EntityType Name="Portfolio">
           <Key>
+            <PropertyRef Name="cc" />
             <PropertyRef Name="nome" />
           </Key>
-          <Property Name="cc" Type="Int32" />
+          <Property Name="cc" Type="Int32" Nullable="false" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="vt" Type="Int32" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__Portfolio__cc__2E70E1FD" FromRole="Portfolio" ToRole="Cliente" />
-          <NavigationProperty Name="Posições" Relationship="Self.FK__Posições__nome__324172E1" FromRole="Portfolio" ToRole="Posições" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Portfolio__cc__0D84EF7E" FromRole="Portfolio" ToRole="Cliente" />
+          <NavigationProperty Name="Posições" Relationship="TL51N_3Model.PortfolioPosições" FromRole="Portfolio" ToRole="Posições" />
         </EntityType>
         <EntityType Name="Posições">
           <Key>
+            <PropertyRef Name="cc" />
+            <PropertyRef Name="nome" />
+            <PropertyRef Name="isin" />
             <PropertyRef Name="qtd" />
           </Key>
-          <Property Name="cc" Type="Int32" />
-          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cc" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="qtd" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Instrumento" Relationship="Self.FK__Posições__isin__3335971A" FromRole="Posições" ToRole="Instrumento" />
-          <NavigationProperty Name="Portfolio" Relationship="Self.FK__Posições__nome__324172E1" FromRole="Posições" ToRole="Portfolio" />
+          <NavigationProperty Name="Instrumento" Relationship="Self.FK__Posições__isin__1249A49B" FromRole="Posições" ToRole="Instrumento" />
+          <NavigationProperty Name="Portfolio" Relationship="TL51N_3Model.PortfolioPosições" FromRole="Posições" ToRole="Portfolio" />
         </EntityType>
         <EntityType Name="RegDiaInst">
           <Key>
@@ -486,7 +501,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="val_max" Type="Single" Nullable="false" />
           <Property Name="val_ab" Type="Single" Nullable="false" />
           <Property Name="val_fe" Type="Single" />
-          <NavigationProperty Name="Instrumento" Relationship="Self.FK__RegDiaInst__isin__1D4655FB" FromRole="RegDiaInst" ToRole="Instrumento" />
+          <NavigationProperty Name="Instrumento" Relationship="Self.FK__RegDiaInst__isin__7B663F43" FromRole="RegDiaInst" ToRole="Instrumento" />
         </EntityType>
         <EntityType Name="RegDiaMerFin">
           <Key>
@@ -501,9 +516,9 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="var_dia" Type="Single" Nullable="false" />
           <Property Name="val_ab" Type="Single" Nullable="false" />
           <Property Name="int_mer" Type="Single" Nullable="false" />
-          <NavigationProperty Name="MerFin" Relationship="Self.FK__RegDiaMer__cod_u__0E04126B" FromRole="RegDiaMerFin" ToRole="MerFin" />
+          <NavigationProperty Name="MerFin" Relationship="Self.FK__RegDiaMer__cod_u__6C23FBB3" FromRole="RegDiaMerFin" ToRole="MerFin" />
         </EntityType>
-        <EntityType Name="Triplo">
+        <EntityType Name="Triplos">
           <Key>
             <PropertyRef Name="datet" />
           </Key>
@@ -511,7 +526,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <Property Name="datet" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="valor" Type="Single" />
         </EntityType>
-        <Association Name="FK__Contacto__cc__370627FE">
+        <Association Name="FK__Contacto__cc__161A357F">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -523,8 +538,8 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Portfolio__cc__2E70E1FD">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+        <Association Name="FK__Portfolio__cc__0D84EF7E">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
@@ -535,7 +550,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Email__cc__3F9B6DFF">
+        <Association Name="FK__Email__cc__1EAF7B80">
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
           <End Role="Email" Type="Self.Email" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -547,7 +562,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefone__cc__3AD6B8E2">
+        <Association Name="FK__Telefone__cc__19EAC663">
           <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
           <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -559,8 +574,8 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posições__isin__3335971A">
-          <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="0..1" />
+        <Association Name="FK__Posições__isin__1249A49B">
+          <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
           <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Instrumento">
@@ -571,7 +586,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegDiaInst__isin__1D4655FB">
+        <Association Name="FK__RegDiaInst__isin__7B663F43">
           <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
           <End Role="RegDiaInst" Type="Self.RegDiaInst" Multiplicity="*" />
           <ReferentialConstraint>
@@ -583,7 +598,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegDiaMer__cod_u__0E04126B">
+        <Association Name="FK__RegDiaMer__cod_u__6C23FBB3">
           <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
           <End Role="RegDiaMerFin" Type="Self.RegDiaMerFin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -595,70 +610,58 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posições__nome__324172E1">
-          <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
-          <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Portfolio">
-              <PropertyRef Name="nome" />
-            </Principal>
-            <Dependent Role="Posições">
-              <PropertyRef Name="nome" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Mer_A_Ins">
           <End Role="MerFin" Type="Self.MerFin" Multiplicity="*" />
           <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="TL51N_3Entities7" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
-          <EntitySet Name="Contactoes" EntityType="Self.Contacto" />
-          <EntitySet Name="Emails" EntityType="Self.Email" />
-          <EntitySet Name="Instrumentoes" EntityType="Self.Instrumento" />
-          <EntitySet Name="MerFins" EntityType="Self.MerFin" />
-          <EntitySet Name="Telefones" EntityType="Self.Telefone" />
-          <EntitySet Name="Portfolios" EntityType="Self.Portfolio" />
+        <EntityContainer Name="TL51N_3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+          <EntitySet Name="Email" EntityType="Self.Email" />
+          <EntitySet Name="Instrumento" EntityType="Self.Instrumento" />
+          <EntitySet Name="MerFin" EntityType="Self.MerFin" />
+          <EntitySet Name="Telefone" EntityType="Self.Telefone" />
+          <EntitySet Name="Portfolio" EntityType="Self.Portfolio" />
           <EntitySet Name="Posições" EntityType="Self.Posições" />
-          <EntitySet Name="RegDiaInsts" EntityType="Self.RegDiaInst" />
-          <EntitySet Name="RegDiaMerFins" EntityType="Self.RegDiaMerFin" />
-          <EntitySet Name="Triplos" EntityType="Self.Triplo" />
-          <AssociationSet Name="FK__Contacto__cc__370627FE" Association="Self.FK__Contacto__cc__370627FE">
-            <End Role="Cliente" EntitySet="Clientes" />
-            <End Role="Contacto" EntitySet="Contactoes" />
+          <EntitySet Name="RegDiaInst" EntityType="Self.RegDiaInst" />
+          <EntitySet Name="RegDiaMerFin" EntityType="Self.RegDiaMerFin" />
+          <EntitySet Name="Triplos" EntityType="Self.Triplos" />
+          <AssociationSet Name="FK__Contacto__cc__161A357F" Association="Self.FK__Contacto__cc__161A357F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Contacto" EntitySet="Contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Portfolio__cc__2E70E1FD" Association="Self.FK__Portfolio__cc__2E70E1FD">
-            <End Role="Cliente" EntitySet="Clientes" />
-            <End Role="Portfolio" EntitySet="Portfolios" />
+          <AssociationSet Name="FK__Portfolio__cc__0D84EF7E" Association="Self.FK__Portfolio__cc__0D84EF7E">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Portfolio" EntitySet="Portfolio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Email__cc__3F9B6DFF" Association="Self.FK__Email__cc__3F9B6DFF">
-            <End Role="Contacto" EntitySet="Contactoes" />
-            <End Role="Email" EntitySet="Emails" />
+          <AssociationSet Name="FK__Email__cc__1EAF7B80" Association="Self.FK__Email__cc__1EAF7B80">
+            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="Email" EntitySet="Email" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefone__cc__3AD6B8E2" Association="Self.FK__Telefone__cc__3AD6B8E2">
-            <End Role="Contacto" EntitySet="Contactoes" />
-            <End Role="Telefone" EntitySet="Telefones" />
+          <AssociationSet Name="FK__Telefone__cc__19EAC663" Association="Self.FK__Telefone__cc__19EAC663">
+            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="Telefone" EntitySet="Telefone" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posições__isin__3335971A" Association="Self.FK__Posições__isin__3335971A">
-            <End Role="Instrumento" EntitySet="Instrumentoes" />
+          <AssociationSet Name="FK__Posições__isin__1249A49B" Association="Self.FK__Posições__isin__1249A49B">
+            <End Role="Instrumento" EntitySet="Instrumento" />
             <End Role="Posições" EntitySet="Posições" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegDiaInst__isin__1D4655FB" Association="Self.FK__RegDiaInst__isin__1D4655FB">
-            <End Role="Instrumento" EntitySet="Instrumentoes" />
-            <End Role="RegDiaInst" EntitySet="RegDiaInsts" />
+          <AssociationSet Name="FK__RegDiaInst__isin__7B663F43" Association="Self.FK__RegDiaInst__isin__7B663F43">
+            <End Role="Instrumento" EntitySet="Instrumento" />
+            <End Role="RegDiaInst" EntitySet="RegDiaInst" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegDiaMer__cod_u__0E04126B" Association="Self.FK__RegDiaMer__cod_u__0E04126B">
-            <End Role="MerFin" EntitySet="MerFins" />
-            <End Role="RegDiaMerFin" EntitySet="RegDiaMerFins" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Posições__nome__324172E1" Association="Self.FK__Posições__nome__324172E1">
-            <End Role="Portfolio" EntitySet="Portfolios" />
-            <End Role="Posições" EntitySet="Posições" />
+          <AssociationSet Name="FK__RegDiaMer__cod_u__6C23FBB3" Association="Self.FK__RegDiaMer__cod_u__6C23FBB3">
+            <End Role="MerFin" EntitySet="MerFin" />
+            <End Role="RegDiaMerFin" EntitySet="RegDiaMerFin" />
           </AssociationSet>
           <AssociationSet Name="Mer_A_Ins" Association="Self.Mer_A_Ins">
-            <End Role="MerFin" EntitySet="MerFins" />
-            <End Role="Instrumento" EntitySet="Instrumentoes" />
+            <End Role="MerFin" EntitySet="MerFin" />
+            <End Role="Instrumento" EntitySet="Instrumento" />
           </AssociationSet>
+          <FunctionImport Name="fListaPortfolio" IsComposable="true" ReturnType="Collection(TL51N_3Model.fListaPortfolio_Result)">
+            <Parameter Name="ccT" Mode="In" Type="Int32" />
+            <Parameter Name="nomeT" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="udfProductInYear" IsComposable="true" ReturnType="Collection(TL51N_3Model.udfProductInYear_Result)">
             <Parameter Name="ccT" Mode="In" Type="Int32" />
             <Parameter Name="nomeT" Mode="In" Type="String" />
@@ -666,14 +669,32 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
           <FunctionImport Name="InserçãoDeRegistosDiáriosAutomáticos" />
           <FunctionImport Name="p_actualizaDadosInstrumentos" />
           <FunctionImport Name="p_actualizaValorDiario" />
+          <AssociationSet Name="PortfolioPosições" Association="TL51N_3Model.PortfolioPosições">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="Posições" EntitySet="Posições" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="PortfolioPosições">
+          <End Type="TL51N_3Model.Portfolio" Role="Portfolio" Multiplicity="1" />
+          <End Type="TL51N_3Model.Posições" Role="Posições" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="cc" />
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Posições">
+              <PropertyRef Name="cc" />
+              <PropertyRef Name="nome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TL51N_3ModelStoreContainer" CdmEntityContainer="TL51N_3Entities7">
-          <EntitySetMapping Name="Clientes">
+        <EntityContainerMapping StorageEntityContainer="TL51N_3ModelStoreContainer" CdmEntityContainer="TL51N_3Entities">
+          <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="TL51N_3Model.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="cc" ColumnName="cc" />
@@ -682,7 +703,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Contactoes">
+          <EntitySetMapping Name="Contacto">
             <EntityTypeMapping TypeName="TL51N_3Model.Contacto">
               <MappingFragment StoreEntitySet="Contacto">
                 <ScalarProperty Name="cc" ColumnName="cc" />
@@ -691,7 +712,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Emails">
+          <EntitySetMapping Name="Email">
             <EntityTypeMapping TypeName="TL51N_3Model.Email">
               <MappingFragment StoreEntitySet="Email">
                 <ScalarProperty Name="cc" ColumnName="cc" />
@@ -700,7 +721,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Instrumentoes">
+          <EntitySetMapping Name="Instrumento">
             <EntityTypeMapping TypeName="TL51N_3Model.Instrumento">
               <MappingFragment StoreEntitySet="Instrumento">
                 <ScalarProperty Name="isin" ColumnName="isin" />
@@ -714,7 +735,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MerFins">
+          <EntitySetMapping Name="MerFin">
             <EntityTypeMapping TypeName="TL51N_3Model.MerFin">
               <MappingFragment StoreEntitySet="MerFin">
                 <ScalarProperty Name="cod_un" ColumnName="cod_un" />
@@ -723,7 +744,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Telefones">
+          <EntitySetMapping Name="Telefone">
             <EntityTypeMapping TypeName="TL51N_3Model.Telefone">
               <MappingFragment StoreEntitySet="Telefone">
                 <ScalarProperty Name="cc" ColumnName="cc" />
@@ -733,7 +754,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Portfolios">
+          <EntitySetMapping Name="Portfolio">
             <EntityTypeMapping TypeName="TL51N_3Model.Portfolio">
               <MappingFragment StoreEntitySet="Portfolio">
                 <ScalarProperty Name="cc" ColumnName="cc" />
@@ -752,7 +773,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RegDiaInsts">
+          <EntitySetMapping Name="RegDiaInst">
             <EntityTypeMapping TypeName="TL51N_3Model.RegDiaInst">
               <MappingFragment StoreEntitySet="RegDiaInst">
                 <ScalarProperty Name="isin" ColumnName="isin" />
@@ -764,7 +785,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RegDiaMerFins">
+          <EntitySetMapping Name="RegDiaMerFin">
             <EntityTypeMapping TypeName="TL51N_3Model.RegDiaMerFin">
               <MappingFragment StoreEntitySet="RegDiaMerFin">
                 <ScalarProperty Name="cod_un" ColumnName="cod_un" />
@@ -776,7 +797,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Triplos">
-            <EntityTypeMapping TypeName="TL51N_3Model.Triplo">
+            <EntityTypeMapping TypeName="TL51N_3Model.Triplos">
               <MappingFragment StoreEntitySet="Triplos">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="datet" ColumnName="datet" />
@@ -792,6 +813,16 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
               <ScalarProperty Name="isin" ColumnName="isin" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionName="TL51N_3Model.Store.fListaPortfolio" FunctionImportName="fListaPortfolio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TL51N_3Model.fListaPortfolio_Result">
+                <ScalarProperty Name="isin" ColumnName="isin" />
+                <ScalarProperty Name="qtd" ColumnName="qtd" />
+                <ScalarProperty Name="val_at" ColumnName="val_at" />
+                <ScalarProperty Name="perc_var_dia" ColumnName="perc_var_dia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionName="TL51N_3Model.Store.udfProductInYear" FunctionImportName="udfProductInYear">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TL51N_3Model.udfProductInYear_Result">
@@ -819,7 +850,7 @@ warning 6035: The relationship 'FK__Telefone__cod_un__3BCADD1B' has columns that
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

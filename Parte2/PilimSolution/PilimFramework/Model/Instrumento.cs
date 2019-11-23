@@ -18,8 +18,8 @@ namespace PilimFramework.Model
         public Instrumento()
         {
             this.Posições = new HashSet<Posições>();
-            this.RegDiaInsts = new HashSet<RegDiaInst>();
-            this.MerFins = new HashSet<MerFin>();
+            this.RegDiaInst = new HashSet<RegDiaInst>();
+            this.MerFin = new HashSet<MerFin>();
         }
     
         public string isin { get; set; }
@@ -34,8 +34,8 @@ namespace PilimFramework.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Posições> Posições { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RegDiaInst> RegDiaInsts { get; set; }
+        public virtual ICollection<RegDiaInst> RegDiaInst { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MerFin> MerFins { get; set; }
+        public virtual ICollection<MerFin> MerFin { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace PilimFramework.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Triplo
+    public partial class Triplos
     {
         public string id { get; set; }
         public System.DateTime datet { get; set; }

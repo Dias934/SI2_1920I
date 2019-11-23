@@ -20,7 +20,7 @@ namespace PilimFramework.Model
             this.Posições = new HashSet<Posições>();
         }
     
-        public Nullable<int> cc { get; set; }
+        public int cc { get; set; }
         public string nome { get; set; }
         public Nullable<int> vt { get; set; }
     

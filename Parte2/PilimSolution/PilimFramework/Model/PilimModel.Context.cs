@@ -15,10 +15,10 @@ namespace PilimFramework.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class TL51N_3Entities7 : DbContext
+    public partial class TL51N_3Entities : DbContext
     {
-        public TL51N_3Entities7()
-            : base("name=TL51N_3Entities7")
+        public TL51N_3Entities()
+            : base("name=TL51N_3Entities")
         {
         }
     
@@ -27,19 +27,33 @@ namespace PilimFramework.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Contacto> Contactoes { get; set; }
-        public virtual DbSet<Email> Emails { get; set; }
-        public virtual DbSet<Instrumento> Instrumentoes { get; set; }
-        public virtual DbSet<MerFin> MerFins { get; set; }
-        public virtual DbSet<Telefone> Telefones { get; set; }
-        public virtual DbSet<Portfolio> Portfolios { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Contacto> Contacto { get; set; }
+        public virtual DbSet<Email> Email { get; set; }
+        public virtual DbSet<Instrumento> Instrumento { get; set; }
+        public virtual DbSet<MerFin> MerFin { get; set; }
+        public virtual DbSet<Telefone> Telefone { get; set; }
+        public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Posições> Posições { get; set; }
-        public virtual DbSet<RegDiaInst> RegDiaInsts { get; set; }
-        public virtual DbSet<RegDiaMerFin> RegDiaMerFins { get; set; }
-        public virtual DbSet<Triplo> Triplos { get; set; }
+        public virtual DbSet<RegDiaInst> RegDiaInst { get; set; }
+        public virtual DbSet<RegDiaMerFin> RegDiaMerFin { get; set; }
+        public virtual DbSet<Triplos> Triplos { get; set; }
     
-        [DbFunction("TL51N_3Entities7", "udfProductInYear")]
+        [DbFunction("TL51N_3Entities", "fListaPortfolio")]
+        public virtual IQueryable<fListaPortfolio_Result> fListaPortfolio(Nullable<int> ccT, string nomeT)
+        {
+            var ccTParameter = ccT.HasValue ?
+                new ObjectParameter("ccT", ccT) :
+                new ObjectParameter("ccT", typeof(int));
+    
+            var nomeTParameter = nomeT != null ?
+                new ObjectParameter("nomeT", nomeT) :
+                new ObjectParameter("nomeT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fListaPortfolio_Result>("[TL51N_3Entities].[fListaPortfolio](@ccT, @nomeT)", ccTParameter, nomeTParameter);
+        }
+    
+        [DbFunction("TL51N_3Entities", "udfProductInYear")]
         public virtual IQueryable<udfProductInYear_Result> udfProductInYear(Nullable<int> ccT, string nomeT)
         {
             var ccTParameter = ccT.HasValue ?
@@ -50,7 +64,7 @@ namespace PilimFramework.Model
                 new ObjectParameter("nomeT", nomeT) :
                 new ObjectParameter("nomeT", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<udfProductInYear_Result>("[TL51N_3Entities7].[udfProductInYear](@ccT, @nomeT)", ccTParameter, nomeTParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<udfProductInYear_Result>("[TL51N_3Entities].[udfProductInYear](@ccT, @nomeT)", ccTParameter, nomeTParameter);
         }
     
         public virtual int InserçãoDeRegistosDiáriosAutomáticos()

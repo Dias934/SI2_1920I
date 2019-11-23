@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\Model\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\Model\PilimModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

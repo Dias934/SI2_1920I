@@ -52,70 +52,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="Menu\ExecuteProcedure.cs" />
+    <Compile Include="Menu\Main.cs" />
     <Compile Include="Credentials.cs" />
+    <Compile Include="DBConnection\SqlGate.cs" />
+    <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\SqlBatchCommand.cs" />
     <Compile Include="Model\Cliente.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Contacto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Email.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fListaPortfolio_Result.cs">
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Instrumento.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MerFin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.Context.cs">
+    <Compile Include="Model\PilimModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>PilimModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.cs">
+    <Compile Include="Model\PilimModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.Designer.cs">
+    <Compile Include="Model\PilimModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>PilimModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Portfolio.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Posições.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RegDiaInst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RegDiaMerFin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Telefone.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Triplo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Model\Triplos.cs">
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\udfProductInYear_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PilimApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\Model1.edmx">
+    <EntityDeploy Include="Model\PilimModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>PilimModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="Model\PilimModel.edmx.diagram">
+      <DependentUpon>PilimModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -123,19 +130,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Folder Include="DataMap\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Menus\" />
+    <Content Include="Model\PilimModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PilimModel.edmx</DependentUpon>
+      <LastGenOutput>PilimModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PilimModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PilimModel.edmx</DependentUpon>
+      <LastGenOutput>PilimModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

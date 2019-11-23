@@ -17,8 +17,8 @@ namespace PilimFramework.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MerFin()
         {
-            this.RegDiaMerFins = new HashSet<RegDiaMerFin>();
-            this.Instrumentoes = new HashSet<Instrumento>();
+            this.RegDiaMerFin = new HashSet<RegDiaMerFin>();
+            this.Instrumento = new HashSet<Instrumento>();
         }
     
         public int cod_un { get; set; }
@@ -26,8 +26,8 @@ namespace PilimFramework.Model
         public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RegDiaMerFin> RegDiaMerFins { get; set; }
+        public virtual ICollection<RegDiaMerFin> RegDiaMerFin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Instrumento> Instrumentoes { get; set; }
+        public virtual ICollection<Instrumento> Instrumento { get; set; }
     }
 }
