@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,11 +12,12 @@ namespace PilimFramework.Menu {
 
 		public CommandType CommandType { get; }
 
-		public IDictionary<string, IDictionary<object, SqlDbType>> ParamInfo { get; set; }
+		public IList<object[]> ParamInfo { get; set; }
 
 		public SqlBatchCommand(string mainQuery, CommandType commandType) {
 			this.CommandType = commandType;
 			this.MainQuery = mainQuery;
+			ParamInfo = new List<object[]>();
 		}
 	}
 }

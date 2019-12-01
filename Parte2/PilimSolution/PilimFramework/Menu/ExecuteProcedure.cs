@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PilimFramework.DBConnection.SqlGate;
+using System.Data;
 
 namespace PilimFramework.Menu {
 	public class ExecuteProcedure : Menu {
@@ -12,7 +14,8 @@ namespace PilimFramework.Menu {
 		private enum Option {
 			Unknown = -1,
 			Exit,
-			ActualizaValorDiario
+			ActualizaValorDiario,
+			ActualizaValoresFundamentaisInstrumento
 		}
 		private System.Collections.Generic.Dictionary<Option, Method> __methods;
 		private static ExecuteProcedure __instance;
@@ -20,6 +23,7 @@ namespace PilimFramework.Menu {
 			__methods = new Dictionary<Option, Method>();
 			__methods.Add(Option.Exit, Exit);
 			__methods.Add(Option.ActualizaValorDiario, ActualizaValorDiario);
+			__methods.Add(Option.ActualizaValoresFundamentaisInstrumento, ActualizaValoresFundamentaisInstrumento);
 		}
 
 		public static ExecuteProcedure Instance {
@@ -31,9 +35,25 @@ namespace PilimFramework.Menu {
 			private set { }
 		}
 
+		private void ActualizaValoresFundamentaisInstrumento() {
+			Console.WriteLine("Insira o isin do instrumento que quer atualizar");
+			string src=Console.ReadLine();
+			SqlBatchCommand command = new SqlBatchCommand("p_actualizaDadosInstrumentos", System.Data.CommandType.StoredProcedure);
+			command.ParamInfo.Add(new object[] { "@isinT",src });
+			Return_Status ret = SqlGate.ExecuteProcedure(ConnectionString, command);
+			Console.Write("The procedure was ");
+			if (ret == Return_Status.Not_Successful)
+				Console.Write("not ");
+			Console.WriteLine("successfuly executed.");
+		}
+
 		private void ActualizaValorDiario() {
 			SqlBatchCommand command = new SqlBatchCommand("p_actualizaValorDiario", System.Data.CommandType.StoredProcedure);
-			SqlGate.ExecuteProcedure(ConnectionString, command);
+			Return_Status ret= SqlGate.ExecuteProcedure(ConnectionString, command);
+			Console.Write("The procedure was ");
+			if (ret == Return_Status.Not_Successful)
+				Console.Write("not ");
+			Console.WriteLine("successfuly executed.");
 		}
 
 		private Option DisplayMenu() {
@@ -62,7 +82,8 @@ namespace PilimFramework.Menu {
 				Console.Clear();
 				try {
 					__methods[userInput]();
-					Console.ReadKey();
+					if(userInput!=Option.Exit)
+						Console.ReadKey();
 				}
 				catch (KeyNotFoundException ex) {
 					Console.WriteLine("Option unknown. ->" + ex.Message);

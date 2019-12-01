@@ -34,19 +34,22 @@ namespace PilimFramework.DBConnection {
 
 		public static Return_Status ExecuteProcedure(string connectionString, SqlBatchCommand command) {
 			Return_Status ret = Return_Status.Successful;
-			__cmd.CommandType = command.CommandType;
-			__cmd.CommandText = command.MainQuery;
-			//Falta adicionar parametros
 			using (__cmd.Connection = new SqlConnection(connectionString)) {
 				__cmd.Connection.Open();
 				__cmd.Transaction = __cmd.Connection.BeginTransaction();
 				try {
+					__cmd.CommandType = command.CommandType;
+					__cmd.CommandText = command.MainQuery;
+					for(int i = 0; i < command.ParamInfo.Count; i++) {
+						__cmd.Parameters.AddWithValue((string)command.ParamInfo[i][0], command.ParamInfo[i][1]);
+					}
 					SqlDataReader reader=  __cmd.ExecuteReader();
 					reader.Close();
 					__cmd.Transaction.Commit();
 					__cmd.Parameters.Clear();
 				}
-				catch (SqlException) {
+				catch (SqlException ex) {
+					Console.WriteLine(ex.Message);
 					__cmd.Transaction.Rollback();
 					__cmd.Parameters.Clear();
 					ret = Return_Status.Not_Successful;

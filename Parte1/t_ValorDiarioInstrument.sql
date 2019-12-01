@@ -20,4 +20,4 @@ begin
 	Update RegDiaInst Set val_min=@val_minT, val_max=@val_maxT where isin=@isinT AND DATEDIFF(day,dat,getdate())=0
 end
 
-Drop Trigger ValorActualizadoTrigger
+--Drop Trigger ValorActualizadoTrigger

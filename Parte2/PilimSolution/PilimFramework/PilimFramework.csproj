@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -42,8 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,12 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMap\IMapper.cs" />
+    <Compile Include="DataMap\InstrumentoMapper.cs" />
     <Compile Include="Menu\ExecuteProcedure.cs" />
+    <Compile Include="Menu\Insert.cs" />
     <Compile Include="Menu\Main.cs" />
     <Compile Include="Credentials.cs" />
     <Compile Include="DBConnection\SqlGate.cs" />
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\SqlBatchCommand.cs" />
+    <Compile Include="Menu\Update.cs" />
     <Compile Include="Model\Cliente.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
@@ -129,9 +137,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataMap\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model\PilimModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

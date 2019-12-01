@@ -12,4 +12,4 @@ begin
 	update Portfolio set vt=(Select sum(Posições.qtd) from Posições where Posições.cc=@ccT and Posições.nome=@nomeT) where Portfolio.cc=@ccT and Portfolio.nome=@nomeT
 end
 
-Drop Trigger ValorTotalTrigger
+--Drop Trigger ValorTotalTrigger

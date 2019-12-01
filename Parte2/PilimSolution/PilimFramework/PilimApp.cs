@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PilimFramework.Model;
 
 namespace PilimFramework {
-	class PilimApp {
+	public class PilimApp {
 			
 		public static Credentials getCredentials() {
 			Console.Write("Enter your username: ");
@@ -35,6 +36,8 @@ namespace PilimFramework {
 
 			return new Credentials(username, password);
 		}
+
+
 		public static void Main(string[] args) {
 			Credentials cr = getCredentials();
 			Menu.Menu.ConnectionString = @"Data Source=10.62.73.95;Database=TL51N_3;User ID=" + cr.Username + ";Password=" + cr.Password + "; Pooling=true; max pool size=10";
