@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="si2_ap3_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alunos">
+          <Key>
+            <PropertyRef Name="NumAl" />
+          </Key>
+          <Property Name="NumAl" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Hobbies">
+          <Key>
+            <PropertyRef Name="NumAl" />
+            <PropertyRef Name="nSeq" />
+          </Key>
+          <Property Name="NumAl" Type="int" Nullable="false" />
+          <Property Name="nSeq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__Hobbies__NumAl__3D5E1FD2">
+          <End Role="Alunos" Type="Self.Alunos" Multiplicity="1" />
+          <End Role="Hobbies" Type="Self.Hobbies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alunos">
+              <PropertyRef Name="NumAl" />
+            </Principal>
+            <Dependent Role="Hobbies">
+              <PropertyRef Name="NumAl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="si2_ap3_ModelStoreContainer">
+          <EntitySet Name="Alunos" EntityType="Self.Alunos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hobbies" EntityType="Self.Hobbies" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Hobbies__NumAl__3D5E1FD2" Association="Self.FK__Hobbies__NumAl__3D5E1FD2">
+            <End Role="Alunos" EntitySet="Alunos" />
+            <End Role="Hobbies" EntitySet="Hobbies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="si2_ap3_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aluno">
+          <Key>
+            <PropertyRef Name="NumAl" />
+          </Key>
+          <Property Name="NumAl" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hobbies" Relationship="Self.FK__Hobbies__NumAl__3D5E1FD2" FromRole="Alunos" ToRole="Hobbies" />
+        </EntityType>
+        <EntityType Name="Hobby">
+          <Key>
+            <PropertyRef Name="NumAl" />
+            <PropertyRef Name="nSeq" />
+          </Key>
+          <Property Name="NumAl" Type="Int32" Nullable="false" />
+          <Property Name="nSeq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Alunos" Relationship="Self.FK__Hobbies__NumAl__3D5E1FD2" FromRole="Hobbies" ToRole="Alunos" />
+        </EntityType>
+        <Association Name="FK__Hobbies__NumAl__3D5E1FD2">
+          <End Role="Alunos" Type="si2_ap3_Model.Aluno" Multiplicity="1" />
+          <End Role="Hobbies" Type="si2_ap3_Model.Hobby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alunos">
+              <PropertyRef Name="NumAl" />
+            </Principal>
+            <Dependent Role="Hobbies">
+              <PropertyRef Name="NumAl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SI2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alunos" EntityType="si2_ap3_Model.Aluno" />
+          <EntitySet Name="Hobbies" EntityType="si2_ap3_Model.Hobby" />
+          <AssociationSet Name="FK__Hobbies__NumAl__3D5E1FD2" Association="Self.FK__Hobbies__NumAl__3D5E1FD2">
+            <End Role="Alunos" EntitySet="Alunos" />
+            <End Role="Hobbies" EntitySet="Hobbies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="si2_ap3_ModelStoreContainer" CdmEntityContainer="SI2Entities">
+          <EntitySetMapping Name="Alunos">
+            <EntityTypeMapping TypeName="si2_ap3_Model.Aluno">
+              <MappingFragment StoreEntitySet="Alunos">
+                <ScalarProperty Name="NumAl" ColumnName="NumAl" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hobbies">
+            <EntityTypeMapping TypeName="si2_ap3_Model.Hobby">
+              <MappingFragment StoreEntitySet="Hobbies">
+                <ScalarProperty Name="NumAl" ColumnName="NumAl" />
+                <ScalarProperty Name="nSeq" ColumnName="nSeq" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

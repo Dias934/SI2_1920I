@@ -1,6 +1,6 @@
 CREATE PROCEDURE dbo.InserçãoDeRegistosDiáriosAutomáticos
 AS
-	SET NOCOUNT ON 
+	SET NOCOUNT OFF
 
 	--Tratamento dos registos diários dos Instrumentos
 	DECLARE InstrumentoCursor CURSOR FOR Select isin, val_at from Instrumento;
@@ -44,15 +44,16 @@ AS
 		end;
 	close MerFinCursor;
 	deallocate MerFinCursor;
+	return(@@ROWCOUNT)
 GO
 
 
 
 
-
+/*
 
 USE TL51N_3;  
 GO
 EXEC dbo.InserçãoDeRegistosDiáriosAutomáticos;
 
-DROP PROCEDURE dbo.InserçãoDeRegistosDiáriosAutomáticos
+DROP PROCEDURE dbo.InserçãoDeRegistosDiáriosAutomáticos*/

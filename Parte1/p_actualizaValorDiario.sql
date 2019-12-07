@@ -1,6 +1,6 @@
 CREATE PROCEDURE dbo.p_actualizaValorDiario
 AS
-	SET NOCOUNT ON 
+	SET NOCOUNT OFF
 	DECLARE TriploCursor CURSOR FOR Select * from Triplos;
 	Declare @idT varchar(15);
 	Declare @datetT Datetime;
@@ -18,10 +18,11 @@ AS
 	end;
 	close TriploCursor;
 	deallocate TriploCursor;
+	return(@@ROWCOUNT)
 go
 
 
-USE [TL51N_3]
+/*USE [TL51N_3]
 GO
 
 DECLARE	@return_value int
@@ -32,4 +33,4 @@ SELECT	'Return Value' = @return_value
 
 GO
 
-Drop Procedure dbo.p_actualizaValorDiario
+Drop Procedure dbo.p_actualizaValorDiario*/

@@ -2,7 +2,7 @@ USE TL51N_3
 GO
 CREATE PROCEDURE dbo.p_actualizaDadosInstrumentos @isinT varchar(15)
 AS
-	SET NOCOUNT ON 
+	SET NOCOUNT OFF
 
 	--Tratamento dos registos diários dos Instrumentos
 	declare @med_vf float(2)=0;
@@ -10,7 +10,7 @@ AS
 	declare @med_per_var float(2)=0;
 	declare @perc_var_dia float(2)=0;
 	declare @var_dia float(2)=0;
-	if(@isinT is NOT NULL OR not Exists(Select * from Instrumento where isin=@isinT)) --Se não existir o instrumento ou se o parametro de entrada for nulo, atualiza todos os instrumentos
+	if(@isinT is NULL OR not Exists(Select * from Instrumento where isin=@isinT)) --Se não existir o instrumento ou se o parametro de entrada for nulo, atualiza todos os instrumentos
 	begin 
 		DECLARE InstrumentoCursor CURSOR FOR Select isin from Instrumento;
 		open InstrumentoCursor;
@@ -57,6 +57,7 @@ AS
 			Set @var_dia=0;
 		update Instrumento set med_6_mes_val_fe=@med_vf, val_var_6_mes=@med_vv, perc_var_6_mes=@med_per_var, val_var_dia=@var_dia, perc_var_dia=@perc_var_dia where isin=@isinT
 	end
+	return (@@ROWCOUNT)
 GO
 
 --Drop Procedure dbo.p_actualizaDadosInstrumentos

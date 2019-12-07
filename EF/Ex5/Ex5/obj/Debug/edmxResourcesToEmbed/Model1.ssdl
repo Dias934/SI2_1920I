@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alunos">
+    <Key>
+      <PropertyRef Name="NumAl" />
+    </Key>
+    <Property Name="NumAl" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="AlunosAssEst">
+    <Key>
+      <PropertyRef Name="NumAl" />
+      <PropertyRef Name="nSeq" />
+    </Key>
+    <Property Name="NumAl" Type="int" Nullable="false" />
+    <Property Name="nSeq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Interesse" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__AlunosAss__NumAl__0DEF03D2">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="1" />
+    <End Role="AlunosAssEst" Type="Self.AlunosAssEst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="NumAl" />
+      </Principal>
+      <Dependent Role="AlunosAssEst">
+        <PropertyRef Name="NumAl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASIModelStoreContainer">
+    <EntitySet Name="Alunos" EntityType="Self.Alunos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlunosAssEst" EntityType="Self.AlunosAssEst" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AlunosAss__NumAl__0DEF03D2" Association="Self.FK__AlunosAss__NumAl__0DEF03D2">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="AlunosAssEst" EntitySet="AlunosAssEst" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,72 @@
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.exe
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.pdb
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.pdb
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+C:\Users\wv_000\Desktop\ASI_2013_2014\2013_2014\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.exe
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.pdb
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.pdb
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+D:\ASI_2014_2015\2014_2015\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.exe
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.pdb
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.pdb
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+D:\Aulas\ASI_2015_2016\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.exe
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.pdb
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.pdb
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+D:\Aulas\ASI_2016_2017\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.exe
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex1.pdb
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.exe
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\Ex1.pdb
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+D:\Aulas\ASI_2017_2018\Práticas\Prática 3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\Ex1.exe.config
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\obj\Debug\Ex1.exe
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\obj\Debug\Ex1.pdb
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\obj\Debug\Ex4.csprojResolveAssemblyReference.cache
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\Ex1.exe
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\Ex1.pdb
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\EntityFramework.dll
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\EntityFramework.xml
+D:\Aulas\SI2_2017_2018_I\Práticas\Prática3\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\Ex1.exe.config
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\Ex1.exe
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\Ex1.pdb
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\EntityFramework.dll
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.dll
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\EntityFramework.xml
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\bin\Debug\EntityFramework.SqlServer.xml
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\obj\Debug\Ex4.csprojAssemblyReference.cache
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\obj\Debug\Ex4.csproj.CoreCompileInputs.cache
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\obj\Debug\Ex4.csproj.CopyComplete
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\obj\Debug\Ex1.exe
+E:\work\si2\AulasPraticas\EF\Ex4\Ex4\obj\Debug\Ex1.pdb

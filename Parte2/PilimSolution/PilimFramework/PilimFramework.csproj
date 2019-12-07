@@ -47,6 +47,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,80 +57,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataMap\IMapper.cs" />
-    <Compile Include="DataMap\InstrumentoMapper.cs" />
-    <Compile Include="Menu\ExecuteProcedure.cs" />
-    <Compile Include="Menu\Insert.cs" />
-    <Compile Include="Menu\Main.cs" />
-    <Compile Include="Credentials.cs" />
-    <Compile Include="DBConnection\SqlGate.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\SqlBatchCommand.cs" />
-    <Compile Include="Menu\Update.cs" />
-    <Compile Include="Model\Cliente.cs">
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\Email.Mapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\IMapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\ContactoMapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\ClienteMapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\InstrumentoMapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\MerFinMapper.cs" />
+    <Compile Include="DataProvider\ADONET_Model\DataMappers\PortfolioMapper.cs" />
+    <Compile Include="DataProvider\Credentials.cs" />
+    <Compile Include="DataProvider\DataProvider.cs" />
+    <Compile Include="DataProvider\ADONET_Model\ConnectionGate.cs" />
+    <Compile Include="DataProvider\ADONET_Model\ADONET_Config.cs" />
+    <Compile Include="DataProvider\IConfig.cs" />
+    <Compile Include="DataProvider\EFModel\EF_Config.cs" />
+    <Compile Include="DataProvider\EFModel\Cliente.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Contacto.cs">
+    <Compile Include="DataProvider\EFModel\Contacto.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Email.cs">
+    <Compile Include="DataProvider\EFModel\Email.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\fListaPortfolio_Result.cs">
+    <Compile Include="DataProvider\EFModel\fListaPortfolio_Result.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Instrumento.cs">
+    <Compile Include="DataProvider\EFModel\Instrumento.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MerFin.cs">
+    <Compile Include="DataProvider\EFModel\MerFin.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PilimModel.Context.cs">
+    <Compile Include="DataProvider\EFModel\PilimModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PilimModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PilimModel.cs">
+    <Compile Include="DataProvider\EFModel\PilimModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PilimModel.Designer.cs">
+    <Compile Include="DataProvider\EFModel\PilimModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PilimModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Portfolio.cs">
+    <Compile Include="DataProvider\EFModel\Portfolio.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Posições.cs">
+    <Compile Include="DataProvider\EFModel\Posições.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RegDiaInst.cs">
+    <Compile Include="DataProvider\EFModel\RegDiaInst.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RegDiaMerFin.cs">
+    <Compile Include="DataProvider\EFModel\RegDiaMerFin.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Telefone.cs">
+    <Compile Include="DataProvider\EFModel\Telefone.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Triplos.cs">
+    <Compile Include="DataProvider\EFModel\Triplos.cs">
       <DependentUpon>PilimModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\udfProductInYear_Result.cs">
-      <DependentUpon>PilimModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DataProvider\IEntity.cs" />
     <Compile Include="PilimApp.cs" />
+    <Compile Include="PillimMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\PilimModel.edmx">
+    <EntityDeploy Include="DataProvider\EFModel\PilimModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PilimModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\PilimModel.edmx.diagram">
+    <None Include="DataProvider\EFModel\PilimModel.edmx.diagram">
       <DependentUpon>PilimModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -139,12 +142,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Model\PilimModel.Context.tt">
+    <Content Include="DataProvider\EFModel\PilimModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PilimModel.edmx</DependentUpon>
       <LastGenOutput>PilimModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\PilimModel.tt">
+    <Content Include="DataProvider\EFModel\PilimModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PilimModel.edmx</DependentUpon>
       <LastGenOutput>PilimModel.cs</LastGenOutput>

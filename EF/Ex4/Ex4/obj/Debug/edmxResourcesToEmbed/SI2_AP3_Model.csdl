@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="si2_ap3_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="NumAl" />
+    </Key>
+    <Property Name="NumAl" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hobbies" Relationship="Self.FK__Hobbies__NumAl__3D5E1FD2" FromRole="Alunos" ToRole="Hobbies" />
+  </EntityType>
+  <EntityType Name="Hobby">
+    <Key>
+      <PropertyRef Name="NumAl" />
+      <PropertyRef Name="nSeq" />
+    </Key>
+    <Property Name="NumAl" Type="Int32" Nullable="false" />
+    <Property Name="nSeq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK__Hobbies__NumAl__3D5E1FD2" FromRole="Hobbies" ToRole="Alunos" />
+  </EntityType>
+  <Association Name="FK__Hobbies__NumAl__3D5E1FD2">
+    <End Role="Alunos" Type="si2_ap3_Model.Aluno" Multiplicity="1" />
+    <End Role="Hobbies" Type="si2_ap3_Model.Hobby" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="NumAl" />
+      </Principal>
+      <Dependent Role="Hobbies">
+        <PropertyRef Name="NumAl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SI2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alunos" EntityType="si2_ap3_Model.Aluno" />
+    <EntitySet Name="Hobbies" EntityType="si2_ap3_Model.Hobby" />
+    <AssociationSet Name="FK__Hobbies__NumAl__3D5E1FD2" Association="Self.FK__Hobbies__NumAl__3D5E1FD2">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="Hobbies" EntitySet="Hobbies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

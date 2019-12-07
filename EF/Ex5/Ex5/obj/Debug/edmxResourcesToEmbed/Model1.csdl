@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="NumAl" />
+    </Key>
+    <Property Name="NumAl" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AlunosAssEsts" Relationship="Self.FK__AlunosAss__NumAl__0DEF03D2" FromRole="Alunos" ToRole="AlunosAssEst" />
+  </EntityType>
+  <EntityType Name="AlunosAssEst">
+    <Key>
+      <PropertyRef Name="NumAl" />
+      <PropertyRef Name="nSeq" />
+    </Key>
+    <Property Name="NumAl" Type="Int32" Nullable="false" />
+    <Property Name="nSeq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Interesse" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK__AlunosAss__NumAl__0DEF03D2" FromRole="AlunosAssEst" ToRole="Alunos" />
+  </EntityType>
+  <Association Name="FK__AlunosAss__NumAl__0DEF03D2">
+    <End Role="Alunos" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="AlunosAssEst" Type="Self.AlunosAssEst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="NumAl" />
+      </Principal>
+      <Dependent Role="AlunosAssEst">
+        <PropertyRef Name="NumAl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alunos" EntityType="Self.Aluno" />
+    <EntitySet Name="AlunosAssEsts" EntityType="Self.AlunosAssEst" />
+    <AssociationSet Name="FK__AlunosAss__NumAl__0DEF03D2" Association="Self.FK__AlunosAss__NumAl__0DEF03D2">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="AlunosAssEst" EntitySet="AlunosAssEsts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

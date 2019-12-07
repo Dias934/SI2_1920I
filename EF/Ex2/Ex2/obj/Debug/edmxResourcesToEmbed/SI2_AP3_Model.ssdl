@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="si2_ap3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="si2_ap3ModelStoreContainer">
+    <EntitySet Name="Alunos" EntityType="si2_ap3Model.Store.Alunos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Hobbies" EntityType="si2_ap3Model.Store.Hobbies" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Hobbies__NumAl__3D5E1FD2" Association="si2_ap3Model.Store.FK__Hobbies__NumAl__3D5E1FD2">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="Hobbies" EntitySet="Hobbies" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Alunos">
+    <Key>
+      <PropertyRef Name="NumAl" />
+    </Key>
+    <Property Name="NumAl" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Hobbies">
+    <Key>
+      <PropertyRef Name="NumAl" />
+      <PropertyRef Name="nSeq" />
+    </Key>
+    <Property Name="NumAl" Type="int" Nullable="false" />
+    <Property Name="nSeq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descr" Type="varchar" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__Hobbies__NumAl__3D5E1FD2">
+    <End Role="Alunos" Type="si2_ap3Model.Store.Alunos" Multiplicity="1" />
+    <End Role="Hobbies" Type="si2_ap3Model.Store.Hobbies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="NumAl" />
+      </Principal>
+      <Dependent Role="Hobbies">
+        <PropertyRef Name="NumAl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

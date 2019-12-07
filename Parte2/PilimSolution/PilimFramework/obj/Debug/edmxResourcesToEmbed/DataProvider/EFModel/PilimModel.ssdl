@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TL51N_3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="id_fiscal" Type="int" />
+    <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="descrição" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="endereço" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instrumento">
+    <Key>
+      <PropertyRef Name="isin" />
+    </Key>
+    <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="descrição" Type="varchar" MaxLength="50" />
+    <Property Name="val_var_dia" Type="real" Nullable="false" />
+    <Property Name="val_at" Type="real" Nullable="false" />
+    <Property Name="med_6_mes_val_fe" Type="real" Nullable="false" />
+    <Property Name="val_var_6_mes" Type="real" Nullable="false" />
+    <Property Name="perc_var_dia" Type="real" Nullable="false" />
+    <Property Name="perc_var_6_mes" Type="real" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.Mer_A_Ins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Mer_A_Ins">
+    <Key>
+      <PropertyRef Name="cod_un" />
+      <PropertyRef Name="isin" />
+    </Key>
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MerFin">
+    <Key>
+      <PropertyRef Name="cod_un" />
+    </Key>
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="descrição" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.Portfolio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="cc" />
+      <PropertyRef Name="nome" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="vt" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.Posições' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Posições">
+    <Key>
+      <PropertyRef Name="cc" />
+      <PropertyRef Name="nome" />
+      <PropertyRef Name="isin" />
+      <PropertyRef Name="qtd" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="qtd" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.RegDiaInst' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RegDiaInst">
+    <Key>
+      <PropertyRef Name="isin" />
+      <PropertyRef Name="dat" />
+      <PropertyRef Name="val_min" />
+      <PropertyRef Name="val_max" />
+      <PropertyRef Name="val_ab" />
+    </Key>
+    <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="dat" Type="date" Nullable="false" />
+    <Property Name="val_min" Type="real" Nullable="false" />
+    <Property Name="val_max" Type="real" Nullable="false" />
+    <Property Name="val_ab" Type="real" Nullable="false" />
+    <Property Name="val_fe" Type="real" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.RegDiaMerFin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RegDiaMerFin">
+    <Key>
+      <PropertyRef Name="cod_un" />
+      <PropertyRef Name="dat" />
+      <PropertyRef Name="var_dia" />
+      <PropertyRef Name="val_ab" />
+      <PropertyRef Name="int_mer" />
+    </Key>
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="dat" Type="date" Nullable="false" />
+    <Property Name="var_dia" Type="real" Nullable="false" />
+    <Property Name="val_ab" Type="real" Nullable="false" />
+    <Property Name="int_mer" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="cc" />
+    </Key>
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="cod_un" Type="int" Nullable="false" />
+    <Property Name="indicador" Type="int" Nullable="false" />
+    <Property Name="nr" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TL51N_3.dbo.Triplos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Triplos">
+    <Key>
+      <PropertyRef Name="datet" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="15" />
+    <Property Name="datet" Type="datetime" Nullable="false" />
+    <Property Name="valor" Type="real" />
+  </EntityType>
+  <Association Name="FK__Contacto__cc__0C5BC11B">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Email__cc__14F1071C">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Email" Type="Self.Email" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Email__cod_un__15E52B55' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Email__cod_un__15E52B55" />-->
+  <Association Name="FK__Mer_A_Ins__cod_u__7854C86E">
+    <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
+    <End Role="Mer_A_Ins" Type="Self.Mer_A_Ins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MerFin">
+        <PropertyRef Name="cod_un" />
+      </Principal>
+      <Dependent Role="Mer_A_Ins">
+        <PropertyRef Name="cod_un" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mer_A_Ins__isin__7948ECA7">
+    <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
+    <End Role="Mer_A_Ins" Type="Self.Mer_A_Ins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrumento">
+        <PropertyRef Name="isin" />
+      </Principal>
+      <Dependent Role="Mer_A_Ins">
+        <PropertyRef Name="isin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Portfolio__cc__03C67B1A">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Portfolio">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Posições__cc__06A2E7C5' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Posições__cc__06A2E7C5" />-->
+  <Association Name="FK__Posições__isin__088B3037">
+    <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
+    <End Role="Posições" Type="Self.Posições" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrumento">
+        <PropertyRef Name="isin" />
+      </Principal>
+      <Dependent Role="Posições">
+        <PropertyRef Name="isin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Posições__nome__07970BFE' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Posições__nome__07970BFE" />-->
+  <Association Name="FK__RegDiaInst__isin__71A7CADF">
+    <End Role="Instrumento" Type="Self.Instrumento" Multiplicity="1" />
+    <End Role="RegDiaInst" Type="Self.RegDiaInst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrumento">
+        <PropertyRef Name="isin" />
+      </Principal>
+      <Dependent Role="RegDiaInst">
+        <PropertyRef Name="isin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegDiaMer__cod_u__6265874F">
+    <End Role="MerFin" Type="Self.MerFin" Multiplicity="1" />
+    <End Role="RegDiaMerFin" Type="Self.RegDiaMerFin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MerFin">
+        <PropertyRef Name="cod_un" />
+      </Principal>
+      <Dependent Role="RegDiaMerFin">
+        <PropertyRef Name="cod_un" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Telefone__cc__102C51FF">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="cc" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Telefone__cod_un__11207638' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Telefone__cod_un__11207638" />-->
+  <Function Name="fListaPortfolio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ccT" Type="int" Mode="In" />
+    <Parameter Name="nomeT" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="isin" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="qtd" Type="int" Nullable="false" />
+          <Property Name="val_at" Type="real" Nullable="false" />
+          <Property Name="perc_var_dia" Type="real" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="InserçãoDeRegistosDiáriosAutomáticos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="p_actualizaDadosInstrumentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="isinT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_actualizaValorDiario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="TL51N_3ModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instrumento" EntityType="Self.Instrumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerFin" EntityType="Self.MerFin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mer_A_Ins" EntityType="Self.Mer_A_Ins" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Mer_A_Ins].[cod_un] AS [cod_un], 
+    [Mer_A_Ins].[isin] AS [isin]
+    FROM [dbo].[Mer_A_Ins] AS [Mer_A_Ins]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Portfolio" EntityType="Self.Portfolio" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Portfolio].[cc] AS [cc], 
+    [Portfolio].[nome] AS [nome], 
+    [Portfolio].[vt] AS [vt]
+    FROM [dbo].[Portfolio] AS [Portfolio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Posições" EntityType="Self.Posições" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Posições].[cc] AS [cc], 
+    [Posições].[nome] AS [nome], 
+    [Posições].[isin] AS [isin], 
+    [Posições].[qtd] AS [qtd]
+    FROM [dbo].[Posições] AS [Posições]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RegDiaInst" EntityType="Self.RegDiaInst" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RegDiaInst].[isin] AS [isin], 
+    [RegDiaInst].[dat] AS [dat], 
+    [RegDiaInst].[val_min] AS [val_min], 
+    [RegDiaInst].[val_max] AS [val_max], 
+    [RegDiaInst].[val_ab] AS [val_ab], 
+    [RegDiaInst].[val_fe] AS [val_fe]
+    FROM [dbo].[RegDiaInst] AS [RegDiaInst]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RegDiaMerFin" EntityType="Self.RegDiaMerFin" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RegDiaMerFin].[cod_un] AS [cod_un], 
+    [RegDiaMerFin].[dat] AS [dat], 
+    [RegDiaMerFin].[var_dia] AS [var_dia], 
+    [RegDiaMerFin].[val_ab] AS [val_ab], 
+    [RegDiaMerFin].[int_mer] AS [int_mer]
+    FROM [dbo].[RegDiaMerFin] AS [RegDiaMerFin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Triplos" EntityType="Self.Triplos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Triplos].[id] AS [id], 
+    [Triplos].[datet] AS [datet], 
+    [Triplos].[valor] AS [valor]
+    FROM [dbo].[Triplos] AS [Triplos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Contacto__cc__0C5BC11B" Association="Self.FK__Contacto__cc__0C5BC11B">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Email__cc__14F1071C" Association="Self.FK__Email__cc__14F1071C">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Email" EntitySet="Email" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mer_A_Ins__cod_u__7854C86E" Association="Self.FK__Mer_A_Ins__cod_u__7854C86E">
+      <End Role="MerFin" EntitySet="MerFin" />
+      <End Role="Mer_A_Ins" EntitySet="Mer_A_Ins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mer_A_Ins__isin__7948ECA7" Association="Self.FK__Mer_A_Ins__isin__7948ECA7">
+      <End Role="Instrumento" EntitySet="Instrumento" />
+      <End Role="Mer_A_Ins" EntitySet="Mer_A_Ins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Portfolio__cc__03C67B1A" Association="Self.FK__Portfolio__cc__03C67B1A">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Portfolio" EntitySet="Portfolio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Posições__isin__088B3037" Association="Self.FK__Posições__isin__088B3037">
+      <End Role="Instrumento" EntitySet="Instrumento" />
+      <End Role="Posições" EntitySet="Posições" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegDiaInst__isin__71A7CADF" Association="Self.FK__RegDiaInst__isin__71A7CADF">
+      <End Role="Instrumento" EntitySet="Instrumento" />
+      <End Role="RegDiaInst" EntitySet="RegDiaInst" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegDiaMer__cod_u__6265874F" Association="Self.FK__RegDiaMer__cod_u__6265874F">
+      <End Role="MerFin" EntitySet="MerFin" />
+      <End Role="RegDiaMerFin" EntitySet="RegDiaMerFin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Telefone__cc__102C51FF" Association="Self.FK__Telefone__cc__102C51FF">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Telefone" EntitySet="Telefone" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

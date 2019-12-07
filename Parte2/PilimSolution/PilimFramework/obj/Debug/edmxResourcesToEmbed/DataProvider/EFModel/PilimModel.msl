@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TL51N_3ModelStoreContainer" CdmEntityContainer="TL51N_3Entities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="TL51N_3Model.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="id_fiscal" ColumnName="id_fiscal" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacto">
+      <EntityTypeMapping TypeName="TL51N_3Model.Contacto">
+        <MappingFragment StoreEntitySet="Contacto">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+          <ScalarProperty Name="descrição" ColumnName="descrição" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Email">
+      <EntityTypeMapping TypeName="TL51N_3Model.Email">
+        <MappingFragment StoreEntitySet="Email">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+          <ScalarProperty Name="endereço" ColumnName="endereço" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instrumento">
+      <EntityTypeMapping TypeName="TL51N_3Model.Instrumento">
+        <MappingFragment StoreEntitySet="Instrumento">
+          <ScalarProperty Name="isin" ColumnName="isin" />
+          <ScalarProperty Name="descrição" ColumnName="descrição" />
+          <ScalarProperty Name="val_var_dia" ColumnName="val_var_dia" />
+          <ScalarProperty Name="val_at" ColumnName="val_at" />
+          <ScalarProperty Name="med_6_mes_val_fe" ColumnName="med_6_mes_val_fe" />
+          <ScalarProperty Name="val_var_6_mes" ColumnName="val_var_6_mes" />
+          <ScalarProperty Name="perc_var_dia" ColumnName="perc_var_dia" />
+          <ScalarProperty Name="perc_var_6_mes" ColumnName="perc_var_6_mes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerFin">
+      <EntityTypeMapping TypeName="TL51N_3Model.MerFin">
+        <MappingFragment StoreEntitySet="MerFin">
+          <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+          <ScalarProperty Name="descrição" ColumnName="descrição" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefone">
+      <EntityTypeMapping TypeName="TL51N_3Model.Telefone">
+        <MappingFragment StoreEntitySet="Telefone">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+          <ScalarProperty Name="indicador" ColumnName="indicador" />
+          <ScalarProperty Name="nr" ColumnName="nr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Portfolio">
+      <EntityTypeMapping TypeName="TL51N_3Model.Portfolio">
+        <MappingFragment StoreEntitySet="Portfolio">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="vt" ColumnName="vt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posições">
+      <EntityTypeMapping TypeName="TL51N_3Model.Posições">
+        <MappingFragment StoreEntitySet="Posições">
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="isin" ColumnName="isin" />
+          <ScalarProperty Name="qtd" ColumnName="qtd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegDiaInst">
+      <EntityTypeMapping TypeName="TL51N_3Model.RegDiaInst">
+        <MappingFragment StoreEntitySet="RegDiaInst">
+          <ScalarProperty Name="isin" ColumnName="isin" />
+          <ScalarProperty Name="dat" ColumnName="dat" />
+          <ScalarProperty Name="val_min" ColumnName="val_min" />
+          <ScalarProperty Name="val_max" ColumnName="val_max" />
+          <ScalarProperty Name="val_ab" ColumnName="val_ab" />
+          <ScalarProperty Name="val_fe" ColumnName="val_fe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegDiaMerFin">
+      <EntityTypeMapping TypeName="TL51N_3Model.RegDiaMerFin">
+        <MappingFragment StoreEntitySet="RegDiaMerFin">
+          <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+          <ScalarProperty Name="dat" ColumnName="dat" />
+          <ScalarProperty Name="var_dia" ColumnName="var_dia" />
+          <ScalarProperty Name="val_ab" ColumnName="val_ab" />
+          <ScalarProperty Name="int_mer" ColumnName="int_mer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Triplos">
+      <EntityTypeMapping TypeName="TL51N_3Model.Triplos">
+        <MappingFragment StoreEntitySet="Triplos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="datet" ColumnName="datet" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Mer_A_Ins" TypeName="TL51N_3Model.Mer_A_Ins" StoreEntitySet="Mer_A_Ins">
+      <EndProperty Name="MerFin">
+        <ScalarProperty Name="cod_un" ColumnName="cod_un" />
+      </EndProperty>
+      <EndProperty Name="Instrumento">
+        <ScalarProperty Name="isin" ColumnName="isin" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionName="TL51N_3Model.Store.fListaPortfolio" FunctionImportName="fListaPortfolio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TL51N_3Model.fListaPortfolio_Result">
+          <ScalarProperty Name="isin" ColumnName="isin" />
+          <ScalarProperty Name="qtd" ColumnName="qtd" />
+          <ScalarProperty Name="val_at" ColumnName="val_at" />
+          <ScalarProperty Name="perc_var_dia" ColumnName="perc_var_dia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InserçãoDeRegistosDiáriosAutomáticos" FunctionName="TL51N_3Model.Store.InserçãoDeRegistosDiáriosAutomáticos" />
+    <FunctionImportMapping FunctionImportName="p_actualizaDadosInstrumentos" FunctionName="TL51N_3Model.Store.p_actualizaDadosInstrumentos" />
+    <FunctionImportMapping FunctionImportName="p_actualizaValorDiario" FunctionName="TL51N_3Model.Store.p_actualizaValorDiario" />
+  </EntityContainerMapping>
+</Mapping>

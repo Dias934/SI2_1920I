@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="si2_ap3ModelStoreContainer" CdmEntityContainer="SI2Entities">
+    <EntitySetMapping Name="Alunos">
+      <EntityTypeMapping TypeName="IsTypeOf(si2_ap3Model.Aluno)">
+        <MappingFragment StoreEntitySet="Alunos">
+          <ScalarProperty Name="NumAl" ColumnName="NumAl" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hobbies">
+      <EntityTypeMapping TypeName="IsTypeOf(si2_ap3Model.Hobbie)">
+        <MappingFragment StoreEntitySet="Hobbies">
+          <ScalarProperty Name="NumAl" ColumnName="NumAl" />
+          <ScalarProperty Name="nSeq" ColumnName="nSeq" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

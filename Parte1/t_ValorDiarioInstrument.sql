@@ -4,7 +4,7 @@ Create Trigger ValorActualizadoTrigger
 On Instrumento After Update
 AS
 begin
-	SET NOCOUNT ON
+	SET NOCOUNT OFF
 	declare @isinT varchar(15)
 	declare @valorT float(2)
 	declare @val_minT float(2)
