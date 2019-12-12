@@ -57,11 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataProvider\ADONET_Model\DataMappers\Email.Mapper.cs" />
     <Compile Include="DataProvider\ADONET_Model\DataMappers\IMapper.cs" />
-    <Compile Include="DataProvider\ADONET_Model\DataMappers\ContactoMapper.cs" />
-    <Compile Include="DataProvider\ADONET_Model\DataMappers\ClienteMapper.cs" />
-    <Compile Include="DataProvider\ADONET_Model\DataMappers\InstrumentoMapper.cs" />
     <Compile Include="DataProvider\ADONET_Model\DataMappers\MerFinMapper.cs" />
     <Compile Include="DataProvider\ADONET_Model\DataMappers\PortfolioMapper.cs" />
     <Compile Include="DataProvider\Credentials.cs" />
