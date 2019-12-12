@@ -5,7 +5,7 @@ using System.Text;
 using PilimFramework.DataProvider.EFModel;
 using System.Threading.Tasks;
 
-namespace PilimFramework.DataProvider.ADONET_DataMappers {
+namespace PilimFramework.DataProvider.ADONET_Model.ADONET_DataMappers {
 	public class Email : IMapper<Email> {
 		public int Create(Email entity) {
 			throw new NotImplementedException();

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PilimFramework.DataProvider.ADONET_Model;
+using PilimFramework.DataProvider.EFModel;
 
 namespace PilimFramework.DataProvider {
 	public class DataProvider {
@@ -31,15 +33,15 @@ namespace PilimFramework.DataProvider {
 		}
 
 		public int UpdateEntity(IEntity o) {
-			throw new NotImplementedException();
+			return __config.Update(o);
 		}
 
-		public IEntity ReadEntity(IEntity o) {
-			throw new NotImplementedException();
+		public IEnumerable ReadEntity(IEntity o) {
+			return __config.Read(o);
 		}
 
 		public int DeleteEntity(IEntity o) {
-			throw new NotImplementedException();
+			return __config.Delete(o);
 		}
 		
 		public int StPr_AtualizarValoresDiários() {
@@ -48,11 +50,10 @@ namespace PilimFramework.DataProvider {
 
 		public int StPr_AtualizarDadosFundamentais(string isin) {
 			return __config.StPr_AtualizarDadosFundamentais(isin);
-			throw new NotImplementedException();
 		}
 
-		public int StPr_ApresentarPortfolio() {
-			throw new NotImplementedException();
+		public IEnumerable StPr_ApresentarPortfolio(Portfolio portfolio) {
+			return __config.StPr_ApresentarPortfolio(portfolio);
 		}
 	}
 }

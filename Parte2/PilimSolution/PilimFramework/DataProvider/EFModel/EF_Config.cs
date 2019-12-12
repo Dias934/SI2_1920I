@@ -18,7 +18,7 @@ namespace PilimFramework.DataProvider.EFModel {
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable StPr_ApresentarPortfolio() {
+		public IEnumerable StPr_ApresentarPortfolio(Portfolio portfolio) {
 			throw new NotImplementedException();
 		}
 

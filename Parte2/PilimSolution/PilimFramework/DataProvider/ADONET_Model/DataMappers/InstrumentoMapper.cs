@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PilimFramework.DataProvider.EFModel;
 
-namespace PilimFramework.DataProvider.ADONET_DataMappers {
+namespace PilimFramework.DataProvider.ADONET_Model.ADONET_DataMappers {
 	public class InstrumentoMapper : IMapper<Instrumento> {
 		public int Create(Instrumento entity) {
 			throw new NotImplementedException();

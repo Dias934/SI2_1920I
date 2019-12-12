@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
-using PilimFramework.DataProvider.ADONET_DataMappers;
+using PilimFramework.DataProvider.ADONET_Model.ADONET_DataMappers;
 using PilimFramework.DataProvider;
 using System.Collections;
 using PilimFramework.DataProvider.EFModel;
@@ -11,10 +11,10 @@ namespace PilimFramework.DataProvider.ADONET_Model {
 	public class ADONET_Config : IConfig {
 		//user=LSG4
 		//password=lsg41819
-		private readonly string __DATASOURCE = "Data Source=localhost";
-		private readonly string __DATABASE = "Database=TL51N_3";
-		//private readonly string __DATASOURCE = "Data Source=10.62.73.95";
+		//private readonly string __DATASOURCE = "Data Source=localhost";
 		//private readonly string __DATABASE = "Database=TL51N_3";
+		private readonly string __DATASOURCE = "Data Source=10.62.73.95";
+		private readonly string __DATABASE = "Database=TL51N_3";
 
 		private Credentials _credentials;
 
@@ -30,6 +30,7 @@ namespace PilimFramework.DataProvider.ADONET_Model {
 		public ADONET_Config() {
 			__dictionary = new Dictionary<Type, object>();
 			__dictionary.Add(typeof(Portfolio),new PortfolioMapper());
+			__dictionary.Add(typeof(MerFin),new MerFinMapper());
 		}
 
 		public bool TestConnection() {
@@ -44,8 +45,8 @@ namespace PilimFramework.DataProvider.ADONET_Model {
 			return ConnectionGate.ExecuteStoredProcedure("p_actualizaDadosInstrumentos",new SqlParameter []{new SqlParameter("@isinT",isin) });
 		}
 
-		public IEnumerable StPr_ApresentarPortfolio() {
-			throw new NotImplementedException();
+		public IEnumerable StPr_ApresentarPortfolio(Portfolio portfolio) {
+			return ConnectionGate.ExecuteReadLazy("Select * from fListaPortfolio(@ccT,@nomeT)", new SqlParameter[] { new SqlParameter("@ccT", portfolio.cc), new SqlParameter("@nomeT", portfolio.nome) });
 		}
 
 		public int Create(IEntity entity) {

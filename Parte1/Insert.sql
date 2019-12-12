@@ -96,6 +96,7 @@ begin tran
 	insert into Cliente values (222,222,'DiogoB')
 	insert into Cliente values (333,333,'Manuel')
 
+
 	insert into Contacto values (111,1,'Contacto DiogoM')
 	insert into Contacto values (222,2,'Contacto DiogoB')
 	insert into Contacto values (333,3,'Contacto Manuel')

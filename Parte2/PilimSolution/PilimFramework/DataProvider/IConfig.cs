@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PilimFramework.DataProvider.EFModel;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace PilimFramework.DataProvider {
@@ -10,7 +11,7 @@ namespace PilimFramework.DataProvider {
 
 		int StPr_AtualizarDadosFundamentais(string isin);
 
-		IEnumerable StPr_ApresentarPortfolio();
+		IEnumerable StPr_ApresentarPortfolio(Portfolio portfolio);
 
 		int Create(IEntity entity);
 		IEnumerable Read(IEntity entity);

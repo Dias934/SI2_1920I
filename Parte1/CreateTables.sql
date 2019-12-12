@@ -104,18 +104,19 @@ create table Cliente
 
 create table Portfolio
 (
-	cc int unique foreign key references Cliente(cc)not null,
-	nome varchar(20) unique not null,
+	cc int foreign key references Cliente(cc)not null,
+	nome varchar(20) not null,
 	vt int
 	CONSTRAINT UC_Portfolio UNIQUE (cc,nome)
 )
 
 create table Posições
 (
-	cc int references Portfolio(cc) not null,
-	nome varchar(20) references Portfolio(nome) not null,
+	cc int not null,
+	nome varchar(20) not null,
 	isin varchar(15) references Instrumento(isin)not null,
-	qtd int not null
+	qtd int not null,
+	constraint FK_Portfolio foreign key (cc,nome) references Portfolio(cc,nome),
 	CONSTRAINT UC_Posições UNIQUE (cc,nome,isin)
 )
 

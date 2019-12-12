@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PilimFramework.DataProvider.ADONET_DataMappers {
+namespace PilimFramework.DataProvider.ADONET_Model.ADONET_DataMappers {
 	public interface IMapper<T> {
 
 		int Create(T entity);

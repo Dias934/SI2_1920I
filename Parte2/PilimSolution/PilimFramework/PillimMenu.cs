@@ -3,6 +3,7 @@ using PilimFramework.DataProvider.EFModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 
@@ -140,32 +141,103 @@ namespace PilimFramework {
 				Console.WriteLine("The value were NOT updated");
 		}
 
-		private void ApresentarPortfolio() { }
+		private void ApresentarPortfolio() {
+			Portfolio portfolio = new Portfolio();
+			Console.WriteLine("Insert cc of Client");
+			portfolio.cc = Int32.Parse(Console.ReadLine());
+			Console.WriteLine("Insert name of Portfolio");
+			portfolio.nome = Console.ReadLine();
+			IEnumerable res=__provider.StPr_ApresentarPortfolio(portfolio);
+			PrintResults(res.GetEnumerator());
+		}
 
 		private void CriarPortfolio() {
 			Portfolio portfolio = new Portfolio();
-			foreach (PropertyInfo property in portfolio.GetType().GetProperties()) {
-				if (!property.PropertyType.IsClass && !property.PropertyType.IsInterface || property.PropertyType.Equals(typeof(string))) {
-					Console.WriteLine("Insert value for "+property.Name+" of type "+property.PropertyType.Name);
-					string s = Console.ReadLine();
-					if (property.PropertyType.IsValueType)
-						property.SetValue(portfolio, Convert.ToInt32(s));
-					else
-						property.SetValue(portfolio, s);
-				}
-			}
+			Console.WriteLine("Insert cc of Client");
+			portfolio.cc = Int32.Parse(Console.ReadLine());
+			Console.WriteLine("Insert name of Portfolio");
+			portfolio.nome = Console.ReadLine();
 			if (__provider.CreateEntity(portfolio) > 0)
 				Console.WriteLine("SUCCESS");
 			else
 				Console.WriteLine("UNSUCCESS");
 		}
 
-		private void InserirMercadoFinanceiro() { }
+		private void InserirMercadoFinanceiro() {
+			MerFin merFin = new MerFin();
+			Console.WriteLine("Insert Unique Code of Mercado Financeiro");
+			merFin.cod_un = Int32.Parse(Console.ReadLine());
+			Console.WriteLine("Insert Name of Mercado Financeiro");
+			merFin.nome = Console.ReadLine();
+			Console.WriteLine("Insert Description of Mercado Financeiro");
+			merFin.descrição = Console.ReadLine();
+			if (__provider.CreateEntity(merFin) > 0)
+				Console.WriteLine("SUCCESS");
+			else
+				Console.WriteLine("UNSUCCESS");
+		}
 
-		private void RemoverMercadoFinanceiro() { }
+		private void RemoverMercadoFinanceiro() {
+			MerFin merFin = new MerFin();
+			Console.WriteLine("Insert Unique Code of Mercado Financeiro to REMOVE");
+			merFin.cod_un = Int32.Parse(Console.ReadLine());
+			if (__provider.DeleteEntity(merFin) > 0)
+				Console.WriteLine("SUCCESS");
+			else
+				Console.WriteLine("UNSUCCESS");
+		}
 
-		private void AtualizarMercadoFinanceiro() { }
+		private void AtualizarMercadoFinanceiro() {
+			MerFin merFin = new MerFin();
+			Console.WriteLine("Insert Unique Code of Mercado Financeiro to Update");
+			merFin.cod_un = Int32.Parse(Console.ReadLine());
+			string src = "";
+			Console.WriteLine("Do you want to update the name of Mercado Financeiro?(Y/N)");
+			src = Console.ReadLine();
+			if (src.ToUpper().Contains("Y")) { 
+				Console.WriteLine("Insert the new name");
+				merFin.nome = Console.ReadLine();
+			}
+			Console.WriteLine("Do you want to update the description of Mercado Financeiro?(Y/N)");
+			src = Console.ReadLine();
+			if (src.ToUpper().Contains("Y")) {
+				Console.WriteLine("Insert the new description");
+				merFin.descrição = Console.ReadLine();
+			}
+			if (__provider.UpdateEntity(merFin) > 0)
+				Console.WriteLine("SUCCESS");
+			else
+				Console.WriteLine("UNSUCCESS");
+		}
 
-		private void RemoverPortfolio() { }
+		private void RemoverPortfolio() {
+			Portfolio portfolio = new Portfolio();
+			Console.WriteLine("Insert the cc of Client's Portfolio you want to REMOVE");
+			portfolio.cc = Int32.Parse(Console.ReadLine());
+			Console.WriteLine("Insert the name Portfolio you want to REMOVE");
+			portfolio.nome = Console.ReadLine();
+			if (__provider.DeleteEntity(portfolio) > 0)
+				Console.WriteLine("SUCCESS");
+			else
+				Console.WriteLine("UNSUCCESS");
+		}
+
+		private void PrintResults(IEnumerator results) {
+			Console.Clear();
+			if (results.MoveNext()) {
+				IDataRecord aux = (IDataRecord)results.Current;
+				for (int i = 0; i < aux.FieldCount; i++) {
+					Console.Write("{0,-25}", aux.GetName(i));
+				}
+				Console.WriteLine();
+				do {
+					aux = (IDataRecord)results.Current;
+					for (int i = 0; i < aux.FieldCount; i++) {
+						Console.Write("{0,-25}", aux.GetValue(i));
+					}
+					Console.WriteLine();
+				} while (results.MoveNext());
+			}
+		}
 	}
 }
