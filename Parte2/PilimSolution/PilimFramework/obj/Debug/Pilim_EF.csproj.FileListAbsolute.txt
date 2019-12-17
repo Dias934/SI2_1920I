@@ -1,0 +1,11 @@
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\Pilim_EF.exe.config
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\Pilim_EF.exe
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\Pilim_EF.pdb
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\EntityFramework.dll
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\EntityFramework.xml
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\obj\Debug\Pilim_EF.csprojAssemblyReference.cache
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\obj\Debug\Pilim_EF.csproj.CopyComplete
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\obj\Debug\Pilim_EF.exe
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\PilimFramework\obj\Debug\Pilim_EF.pdb

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PilimFramework", "PilimFramework\PilimFramework.csproj", "{F4B2DC60-0BFB-4899-A57B-CD399FB1D61C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pilim_ADONET", "Pilim_ADONET\Pilim_ADONET.csproj", "{FEE42777-64C8-4D3C-9E7E-C6A03A5D2712}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pilim_EF", "Pilim_EF\Pilim_EF.csproj", "{7BBF560B-5C9C-44FB-B249-9E30FFA167E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F4B2DC60-0BFB-4899-A57B-CD399FB1D61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4B2DC60-0BFB-4899-A57B-CD399FB1D61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4B2DC60-0BFB-4899-A57B-CD399FB1D61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4B2DC60-0BFB-4899-A57B-CD399FB1D61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE42777-64C8-4D3C-9E7E-C6A03A5D2712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE42777-64C8-4D3C-9E7E-C6A03A5D2712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE42777-64C8-4D3C-9E7E-C6A03A5D2712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE42777-64C8-4D3C-9E7E-C6A03A5D2712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBF560B-5C9C-44FB-B249-9E30FFA167E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBF560B-5C9C-44FB-B249-9E30FFA167E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBF560B-5C9C-44FB-B249-9E30FFA167E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBF560B-5C9C-44FB-B249-9E30FFA167E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

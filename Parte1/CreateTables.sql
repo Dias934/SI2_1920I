@@ -107,7 +107,7 @@ create table Portfolio
 	cc int foreign key references Cliente(cc)not null,
 	nome varchar(20) not null,
 	vt int
-	CONSTRAINT UC_Portfolio UNIQUE (cc,nome)
+	CONSTRAINT PK_Portfolio primary key (cc,nome)
 )
 
 create table Posições

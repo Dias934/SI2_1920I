@@ -113,6 +113,7 @@ begin tran
 	insert into Portfolio (cc,nome) values (111,'Portofolio DiogoM')
 	insert into Portfolio (cc,nome) values (222,'Portofolio DiogoB')
 	insert into Portfolio (cc,nome) values (333,'Portofolio Manuel')
+	insert into Portfolio (cc,nome) values (333,'Portofolio Mané')
 
 	insert into Posições values (111,'Portofolio DiogoM','US0378331005',30)
 	insert into Posições values (111,'Portofolio DiogoM','US38259P5089',80)

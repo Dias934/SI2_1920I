@@ -1,0 +1,6 @@
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\bin\Debug\Pilim_ADONET.exe.config
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\bin\Debug\Pilim_ADONET.exe
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\bin\Debug\Pilim_ADONET.pdb
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\obj\Debug\Pilim_ADONET.csprojAssemblyReference.cache
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\obj\Debug\Pilim_ADONET.exe
+D:\Isel\19-20\Inverno\SI2\SI2_1920I\Parte2\PilimSolution\Pilim_ADONET\obj\Debug\Pilim_ADONET.pdb
