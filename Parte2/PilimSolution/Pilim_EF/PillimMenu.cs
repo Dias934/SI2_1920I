@@ -48,7 +48,7 @@ namespace Pilim_EF {
 		}
 
 		public void Run() {
-			Console.WriteLine("\nTesting Connection...");
+			Console.WriteLine("Testing Connection...");
 			bool flag = true;
 			try {
 				using (SqlConnection con = new SqlConnection(dbContext.Database.Connection.ConnectionString)) {
