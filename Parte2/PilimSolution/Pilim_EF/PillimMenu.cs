@@ -23,7 +23,6 @@ namespace Pilim_EF {
 		}
 
 		private delegate void Method();
-
 		private Dictionary<Option, Method> __methods;
 		private PilimEntities dbContext;
 		private Array __array;

@@ -1,0 +1,120 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class PilimApp{
++{static}Main(String [] args) : void
+}
+
+class PilimMenu{
+- delegate void Method : void
+- Dictionary<Option, Method> __methods
+- Array __array
+
++Run():void
+- DisplayMenu(): Option
+- {static} getCredentials() : Credentials
+- AtualizarValoresDiarios() : void
+- AtualizarDadosFundamentais() : void
+- CriarPortfolio() : void
+- ApresentarPortfolio() : void
+- InserirMercadoFinanceiro() : void
+- RemoverMercadoFinanceiro() : void
+- AtualizarMercadoFinanceiro() : void
+- RemoverPortfolio() : void
+- PrintResult(IEnumerator results) : void
+}
+
+enum Option{
+Unknown = -1,
+Exit
+AtualizarValoresDiarios
+AtualizarDadosFundamentais
+CriarPortfolio
+ApresentarPortfolio
+InserirMercadoFinanceiro
+RemoverMercadoFinanceiro
+AtualizarMercadoFinanceiro
+RemoverPortfolio
+}
+package DataProvider <<Folder>>{
+
+interface IMapper<T>{
+Create(T entity) : int
+Read(T entity) : IEnumerable<T>
+Update(T entity) : int
+Delete(T entity) : int
+}
+
+
+class PortfolioMapper<Portfolio>{}
+class MerFinMapper<MerFin>{}
+
+
+class MerFin{
+-int cod_un
+-string descricao
+-string nome
+..Getters..
++ cod_un():int
++ descricao():string
++ nome():string
+..Setters..
++ cod_un(int cod_un):void
++ descricao(string descricao):void
++ nome(string nome):void
+}
+
+class Portfolio{
+-int cc
+-string nome
+-int vt
+..Getters..
++ cod_un():int
++ nome():string
++ vt():int
+..Setters..
++ cod_un(int cod_un):void
++ nome(string nome):void
++ vt(int vt):void
+}
+
+class ConnectionGate{
+-{static} SqlCommand command
+
++{static} TestConnection() : bool
++{static} ExecuteStoredProcedure(string commandText,params SqlParameter[] parameters) : int
++{static} ExecuteStoredProcedureLazy(string commandText,params SqlParameter[] parameters) : IEnumerable
++{static} ExecuteReadLazy(string commandText, params SqlParameter[] parameters) : IEnumerable
++{static} ExecuteCUD(string commandText, params SqlParameter[] parameters) : int
++{static} OpenConnection() : void
++{static} BeginTransaction() : void
++{static} Commit() : void
++{static} Rollback() : void
++{static} CloseConnection() : void
+}
+PortfolioMapper .left. MerFinMapper
+IMapper<|.down. (PortfolioMapper,MerFinMapper)
+}
+package SQL <<Database>>{
+}
+
+
+PilimApp --> PilimMenu
+PilimMenu -left- Option : has
+
+
+PortfolioMapper *-left-Portfolio
+MerFinMapper *-right- MerFin
+PilimMenu .. IMapper : calls an implementation of
+ConnectionGate <-down- MerFinMapper
+ConnectionGate <-down- PortfolioMapper
+
+ConnectionGate<-->SQL
+
+
+hide PortfolioMapper members
+hide MerFinMapper members
+hide IMapper attributes
+hide PilimApp attributes
+hide Option methods
+@enduml

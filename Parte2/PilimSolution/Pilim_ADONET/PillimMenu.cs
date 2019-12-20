@@ -30,7 +30,7 @@ namespace Pilim_ADONET {
 
 		private Array __array;
 
-		public static Credentials getCredentials() {
+		private static Credentials getCredentials() {
 			Console.Clear();
 			Console.Write("Enter your username: ");
 			string username = Console.ReadLine();

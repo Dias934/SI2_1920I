@@ -25,7 +25,7 @@ namespace Pilim_ADONET.DataMappers {
 			return ConnectionGate.ExecuteCUD(query, new SqlParameter[] { p1, p2});
 		}
 
-		public Portfolio Read(Portfolio entity) {
+		public IEnumerable<Portfolio> Read(Portfolio entity) {
 			throw new NotImplementedException();
 		}
 

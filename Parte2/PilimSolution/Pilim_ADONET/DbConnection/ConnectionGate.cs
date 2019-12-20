@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace Pilim_ADONET.DbConnection {
 	public class ConnectionGate {
 		private static SqlCommand command = new SqlCommand();
-		private static SqlTransaction transaction = null;
 
 		public static bool TestConnection() {
 			try {

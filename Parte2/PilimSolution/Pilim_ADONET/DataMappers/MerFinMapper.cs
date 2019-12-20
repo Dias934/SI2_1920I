@@ -25,7 +25,7 @@ namespace Pilim_ADONET.DataMappers {
 			return ConnectionGate.ExecuteCUD(query, new SqlParameter[] { p });
 		}
 
-		public MerFin Read(MerFin entity) {
+		public IEnumerable<MerFin> Read(MerFin entity) {
 			throw new NotImplementedException();
 		}
 
