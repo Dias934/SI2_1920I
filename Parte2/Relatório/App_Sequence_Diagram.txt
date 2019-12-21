@@ -1,0 +1,17 @@
+@startuml
+start
+:Login;
+:Test Connection;
+if(Successful?) then (No)
+	end
+else (Yes)
+	repeat
+		:Menu;
+		if(Valid Command?) then (Yes)
+			:Execute Command;
+		else (No)
+		endif
+	repeat while (Exit?) is (No)
+	->yes;
+end
+@enduml 
