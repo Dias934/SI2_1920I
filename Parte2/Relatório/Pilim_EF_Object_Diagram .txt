@@ -1,0 +1,74 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Object UML Entity Framework
+class PilimApp{
++{static}Main(String [] args) : void
+}
+
+class PilimMenu{
+- delegate void Method : void
+- Dictionary<Option, Method> __methods
+- Array __array
+
++Run():void
+- DisplayMenu(): Option
+- {static} getCredentials() : Credentials
+- AtualizarValoresDiarios() : void
+- AtualizarDadosFundamentais() : void
+- CriarPortfolio() : void
+- ApresentarPortfolio() : void
+- InserirMercadoFinanceiro() : void
+- RemoverMercadoFinanceiro() : void
+- AtualizarMercadoFinanceiro() : void
+- RemoverPortfolio() : void
+- PrintResult(IEnumerator results) : void
+}
+
+enum Option{
+Unknown = -1,
+Exit
+AtualizarValoresDiarios
+AtualizarDadosFundamentais
+CriarPortfolio
+ApresentarPortfolio
+InserirMercadoFinanceiro
+RemoverMercadoFinanceiro
+AtualizarMercadoFinanceiro
+RemoverPortfolio
+}
+package DataProvider <<Rectangle>>{
+class DBContext{}
+class PilimEntities{
++ virtual DBSet<Cliente> Cliente
++ virtual DBSet<Contacto> Contacto
++ virtual DBSet<Email> Email
++ virtual DBSet<Instrumento> Instrumento
++ virtual DBSet<MerFin> MerFin
++ virtual DBSet<Portfolio> Portfolio
++ virtual DBSet<Telefone> Telefone
++ virtual DBSet<Posições> Posições
++ virtual DBSet<RegDiaInst> RegDiaInst
++ virtual DBSet<RegDiaMerFin> RegDiaMerFin
++ virtual DBSet<Triplos> Triplos
+
++ virtual fListaPortfolio(Nullable<int> ccT, string nomeT) : IQueryable<fListaPortfolio_Result>
++ virtual InsercaoDeRegistosDiariosAutomaticos() : int
++ virtual p_actualizaDadosInstrumentos(string isinT) : int
++ virtual p_actualizaValorDiario() : int
+} 
+}
+package SQL <<Database>>{
+}
+
+
+PilimApp --> PilimMenu
+PilimMenu -left- Option : has
+PilimMenu <--> DataProvider
+DBContext <|-- PilimEntities
+PilimEntities <--> SQL
+
+
+hide DBContext members
+hide PilimApp attributes
+hide Option methods
+@enduml

@@ -1,5 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
+title Object UML ADO.NET 
 
 class PilimApp{
 +{static}Main(String [] args) : void

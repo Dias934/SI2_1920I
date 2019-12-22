@@ -1,4 +1,6 @@
 @startuml
+title Pilim App Sequence Diagram
+ 
 start
 :Login;
 :Test Connection;
