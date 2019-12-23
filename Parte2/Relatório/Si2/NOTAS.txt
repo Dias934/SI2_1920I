@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/2698151/entity-framework-vs-linq-to-sql-vs-ado-net-with-stored-procedures
+
+https://stackoverflow.com/questions/15107992/performance-analyze-ado-net-and-entity-framework
+
+https://social.msdn.microsoft.com/Forums/en-US/1b1defad-4381-4dc5-bbc8-1eb1254ab3f4/adonet-vs-entity-framework-?forum=adodotnetentityframework
+
