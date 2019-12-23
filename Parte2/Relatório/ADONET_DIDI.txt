@@ -1,0 +1,5 @@
+Este esquema representa o UML da App em ADONET que se divide numa app com um Menu que irá chamar e interagir com o nosso DataProvider através de um conjunto de opções possiveis.
+
+O DataProvider contem uma ConnectionGate que estabelece a conexão com a BD e irá interagir com a mesma execuntando os comandos pedidos pelo utilizador, podendo executar storedProcedure, commit, rollback, create, update , delete , read. Foi criada uma classe que representa o Portofolio e o Mercado Financeiro como objectos contendo as suas propriedades e atributos.
+
+Para a interacção com a app implementamos um interface IMapper que está preparado para fazer : create , read , update e delete a qualquer tipo de Objecto. PortofolioMapper e MerFinMapper implementam IMapper efectuando essas mesmas operações aos portofolios e mercados financeiros que recebem respectivamente.
