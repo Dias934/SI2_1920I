@@ -1,0 +1,6 @@
+Este esquema representa o UML da App em Entity Framework que se divide numa app com um Menu que irá chamar e interagir com o nosso DataProvider através de um conjunto de opções possiveis.
+
+O menu contem varias opções de tudo o que é possivel efectuar na base de dados, como Criar um Portofolio, Atualizar os valores diarios e os dados fundamentais de um mercado financeiro e inserir novos mercados. Foi implementado desta maneira para que seja facil de criar novas opções para o menu, tornando-o idependente das suas opções.
+
+Temos um DataProvider que irá interagir com o menu consoante a opção do mesmo for escolhida pelo User. Contem o PilimEnteties que contem um DBSet<> para cada tabela da nossa base de dados, pois será esta a classe que irá interagir com a BD, é nesta classe que foram criadas algumas funções para conseguir executar as opções do Menu tais como: listar portofolio, inserir registo diario automatico, actualiza dados instrumentos, actualiza valor diario. 
+
