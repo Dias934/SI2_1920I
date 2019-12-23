@@ -1,0 +1,3 @@
+A sequencia da nossa App incia-se com o Login abrindo a consola para inserir as credenciais, passando ao teste da conexão, caso seja bem sucedida entra no menu ficando lá até escolher a opção Exit.
+No menu é possivel executar um diverso de opções que caso sejam validas de efectuar são executadas mostrando os resultados da mesma.
+Caso o comando nao seja valido é emitida uma mensagem de erro voltando ao Menu.
