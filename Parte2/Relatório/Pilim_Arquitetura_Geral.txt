@@ -1,0 +1,15 @@
+@startuml
+title  Abstract Arquitecture
+rectangle "Aplication - Business Logic"{
+rectangle "Pilim APP" as APP
+rectangle "Pilim Menu" as Menu
+}
+
+rectangle "Data Provider" as provider
+database "SQL"{
+}
+APP-->Menu
+Menu<-->provider 
+provider<-->SQL
+
+@enduml
