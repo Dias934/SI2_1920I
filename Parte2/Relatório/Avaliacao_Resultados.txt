@@ -1,0 +1,7 @@
+EF VS ADO.NET
+
+A maior vantagem do EF é que oferece um maior nivel de abtracção para trabalhar com a informação, isolando o desenvolvimento da app do modelo de dados "por detrás".
+O mapeamento entre objectos e BD's é especificado declarativamente em vez de estar no codigo, se precisar de fazer uma mudança no schmea da DB, podemos minimizar o impacto no codigo a ser modificado, podendo na mesma fazer querries especificas ou operações de dados sem perder a abstracção
+
+ADO.NET dá uma sintaxe comum para criar conexões e executar querries e processar resultados, mas caso estivessemos a fazer querries em Oracle e depois passasemos para SQLServer teriamos que mudar algumas querries (pois variam consoante a BD utilizada), permite asyncpatter o que pode ser bastante util em agluns casos como benefeciar a responsividade do lado do cliente.
+Enquanto que em EF as querries são escritas em LINQ ou Entity SQL e traduzidos em runtime pelo provider para um BD em particular
